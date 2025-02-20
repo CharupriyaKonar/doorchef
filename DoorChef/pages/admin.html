@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/DoorChef/css/admin.css">
+  <title>Admin Panel</title>
+</head>
+<body>
+  <header>
+    <h1>Admin Panel</h1>
+    <button id="logout-btn">Logout</button>
+  </header>
+
+  <main>
+    <!-- Chef Applications -->
+    <section id="chef-applications">
+      <h2>Chef Applications</h2>
+      <table id="chef-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Specialty</th>
+            <th>Experience</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Populated dynamically -->
+        </tbody>
+      </table>
+    </section>
+
+    <!-- User Applications -->
+    <section id="user-applications">
+      <h2>User Applications</h2>
+      <table id="user-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Populated dynamically -->
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Payment Monitoring -->
+    <section id="payments">
+      <h2>Payment Monitoring</h2>
+      <table id="payment-table">
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Amount</th>
+            <th>Status</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Populated dynamically -->
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Chef Availability -->
+    <section id="chef-availability">
+      <h2>Chef Availability</h2>
+      <table id="availability-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Specialty</th>
+            <th>Availability</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Populated dynamically -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="/DoorChef/js/admin.js"></script>
+</body>
+</html>

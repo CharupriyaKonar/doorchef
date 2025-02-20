@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DoorChef - Home</title>
+  <link rel="stylesheet" href="/DoorChef/css/style.css ">
+  <script src="/DoorChef/js/menu.js" defer></script>
+  <script src="/DoorChef/js/script.js"></script>
+  
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="/DoorChef/pages/index.html">
+        <img src="/DoorChef/Images/logo.png" alt="DoorChef Logo">
+      </a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="/DoorChef/pages/index.html">Home</a></li>
+        <li><a href="/DoorChef/pages/about.html">About</a></li>
+        <li><a href="/DoorChef/pages/menu.html">Menu</a></li>
+        <li><a href="/DoorChef/pages/contact.html">Contact</a></li>
+        <li><a href="/DoorChef/pages/login.html">Login</a></li>
+        <div class="cart-icon" onclick="openCart()">
+          <img src="/DoorChef/Images/cart icon.png" alt="Cart Icon">
+          <div id="cart-count">0</div> <!-- Updates dynamically based on items in the cart -->
+        </div>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Image Slider Section -->
+    <div class="slider-container">
+      <div class="slider">
+        <!-- Slide 1 -->
+        <div class="slide">
+          <img src="/DoorChef/Images/chef6.jpg" alt="Chef 6">
+        </div>
+        <!-- Slide 2 -->
+        <div class="slide">
+          <img src="/DoorChef/Images/chef5.jpg" alt="Chef 5">
+        </div>
+        <!-- Slide 3 -->
+        <div class="slide">
+          <img src="/DoorChef/Images/chef3.jpg" alt="Chef 3">
+        </div>
+        <!-- Slide 4 -->
+        <div class="slide">
+          <img src="/DoorChef/Images/chef4.jpg" alt="Chef 4">
+        </div>
+      </div>
+
+      <!-- Overlay Content -->
+      <div class="slider-content">
+        <h1>Welcome to DoorChef</h1>
+        <p>Your personal chef service at your doorstep!</p>
+        <a href="/DoorChef/pages/menu.html" class="btn">Explore Menu</a>
+      </div>
+    </div>
+  </main>
+<!-- Cart Modal -->
+<div class="cart-modal" id="cart-modal" style="display: none;">
+  <div class="cart-content">
+    <h2>Your Cart</h2>
+    <ul id="cart-items"></ul>
+    <p id="total-amount"></p>
+    <button id="proceed-to-pay" onclick="proceedToPayment()">Proceed to Pay</button>
+    <button onclick="closeCart()">Close</button>
+  </div>
+</div>
+
+  <footer>
+    <p>© 2025 DoorChef. All rights reserved.</p>
+  </footer>
+ 
+
+</body>
+</html>
