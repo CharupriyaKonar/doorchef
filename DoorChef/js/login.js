@@ -1,84 +1,174 @@
+
 // DOM Elements
-const loginForm = document.getElementById('login-form');
-const userRegisterForm = document.getElementById('register-user-form');
-const chefRegisterForm = document.getElementById('register-chef-form');
+const loginForm = document.getElementById("login-form");
+const registerUserLink = document.getElementById("register-user-link");
+const registerChefLink = document.getElementById("register-chef-link");
+const loginLink = document.getElementById("login-link");
+const registeruserForm = document.getElementById("register-user-form");
+const registerChefForm = document.getElementById("register-chef-form");
 
-// Links
-const registerUserLink = document.getElementById('register-user-link');
-const registerChefLink = document.getElementById('register-chef-link');
-const loginLinks = document.querySelectorAll('#login-link');
-
-// Helper Function to Hide All Forms
-function hideAllForms() {
-  loginForm.classList.add('hidden');
-  userRegisterForm.classList.add('hidden');
-  chefRegisterForm.classList.add('hidden');
+// Show User Registration Form
+if (registerUserLink) {
+  registerUserLink.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (loginForm) loginForm.classList.add("hidden");
+    if (registerChefForm) registerChefForm.classList.add("hidden");
+    if (registerUserForm) registerUserForm.classList.remove("hidden");
+  });
 }
 
-// Show respective form on click
-registerUserLink.addEventListener('click', (e) => {
-  e.preventDefault();
-  hideAllForms();
-  userRegisterForm.classList.remove('hidden');
-});
-
-registerChefLink.addEventListener('click', (e) => {
-  e.preventDefault();
-  hideAllForms();
-  chefRegisterForm.classList.remove('hidden');
-});
-
-loginLinks.forEach(link => {
-  link.addEventListener('click', (e) => {
+// Show Chef Registration Form
+if (registerChefLink) {
+  registerChefLink.addEventListener("click", (e) => {
     e.preventDefault();
-    hideAllForms();
-    loginForm.classList.remove('hidden');
+    if (loginForm) loginForm.classList.add("hidden");
+    if (registerUserForm) registerUserForm.classList.add("hidden");
+    if (registerChefForm) registerChefForm.classList.remove("hidden");
   });
-});
+}
 
-// ✅ LOGIN FUNCTION
-document.getElementById("login-form").addEventListener("submit", async function (e) {
-  e.preventDefault();
+// Show Login Form
+if (loginLink) {
+  loginLink.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (registerUserForm) registerUserForm.classList.add("hidden");
+    if (registerChefForm) registerChefForm.classList.add("hidden");
+    if (loginForm) loginForm.classList.remove("hidden");
+  });
+}
+const registerUserForm = document.getElementById("register-user-form");
 
-  const email = document.getElementById("email").value.trim();
-  const password = document.getElementById("password").value.trim();
+// User Registration
+if (registerUserForm) {
+  registerUserForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-  if (!email || !password) {
-    alert("Please enter both email and password.");
-    return;
-  }
+    const name = document.getElementById("reg-name").value.trim();
+    const email = document.getElementById("reg-email").value.trim();
+    const password = document.getElementById("reg-password").value.trim();
+    const confirmPassword = document.getElementById("confirm-password").value.trim();
 
-  try {
-    const response = await fetch("http://localhost:3000/api/auth/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ email, password })
-    });
-
-    const data = await response.json();
-
-    if (!response.ok) {
-      alert(data.message || "Invalid login credentials.");
+    if (!name || !email || !password || !confirmPassword) {
+      alert("Please fill out all fields.");
       return;
     }
 
-    // ✅ Store JWT Token in localStorage
-    localStorage.setItem("token", data.token);
-    localStorage.setItem("userRole", data.user.role); // Store role for future access
-
-    // ✅ Redirect based on user role
-    if (data.user.role === "admin") {
-      window.location.href = "/DoorChef/pages/admin.html";
-    } else if (data.user.role === "chef") {
-      window.location.href = "/DoorChef/pages/chef-portal.html";
-    } else {
-      window.location.href = "/DoorChef/pages/index.html";
+    if (password !== confirmPassword) {
+      alert("Passwords do not match.");
+      return;
     }
 
-  } catch (error) {
-    console.error("Login error:", error);
-    alert("Server error. Please try again later.");
-  }
-});
+    try {
+      const response = await fetch("http://localhost:5000/api/auth/user/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, password }),
+      });
+
+      const data = await response.json();
+      console.log("API Response:", data); // Debugging
+
+      if (!response.ok) {
+        alert(data.message || "Registration failed.");
+        return;
+      }
+
+      alert("User registered successfully!");
+      window.location.href = "/DoorChef/pages/index.html"; // Redirect to home page
+    } catch (error) {
+      console.error("Registration error:", error);
+      alert("Server error. Please try again later.");
+    }
+  });
+}
+
+// Chef Registration
+if (registerChefForm) {
+  registerChefForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById("chef-name").value.trim();
+    const email = document.getElementById("chef-email").value.trim();
+    const password = document.getElementById("chef-password").value.trim();
+    const specialty = document.getElementById("specialty").value.trim();
+    const experience = document.getElementById("experience").value.trim();
+    const availability = document.getElementById("availability").value.trim();
+    const resume = document.getElementById("resume").files[0];
+
+    if (!name || !email || !password || !specialty || !experience || !availability || !resume) {
+      alert("Please fill out all fields.");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("email", email);
+    formData.append("password", password);
+    formData.append("specialty", specialty);
+    formData.append("experience", experience);
+    formData.append("availability", availability);
+    formData.append("resume", resume);
+
+    try {
+      const response = await fetch("http://localhost:5000/api/auth/chef/register", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json();
+      console.log("API Response:", data); // Debugging
+
+      if (!response.ok) {
+        alert(data.message || "Registration failed.");
+        return;
+      }
+
+      alert("Chef registered successfully!");
+      window.location.href = "/DoorChef/pages/chef portal.html"; // Redirect to chef portal
+    } catch (error) {
+      console.error("Registration error:", error);
+      alert("Server error. Please try again later.");
+    }
+  });
+}
+
+// Login
+if (loginForm) {
+  loginForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    if (!email || !password) {
+      alert("Please enter both email and password.");
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:5000/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+      console.log("API Response:", data); // Debugging
+
+      if (!response.ok) {
+        alert(data.message || "Invalid login credentials.");
+        return;
+      }
+
+      // Store token & role in localStorage
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("userRole", data.user.role);
+
+      // Redirect based on role
+      window.location.href = data.redirect;
+    } catch (error) {
+      console.error("Login error:", error);
+      alert("Server error. Please try again later.");
+    }
+  });
+}

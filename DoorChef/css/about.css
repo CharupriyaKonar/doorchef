@@ -38,7 +38,7 @@ header nav ul li a:hover {
 
 .hero {
   position: relative;
-  background: url('Images/about-bg1.jpg') no-repeat center center/cover;
+  background: url('/DoorChef/Images/about-bg1.jpg') no-repeat center center/cover;
   color: white;
   text-align: center;
   padding: 100px 20px;
@@ -167,7 +167,7 @@ footer {
 
 /* Modal Content Styling */
 .cart-content {
-  background: url('Images/cart\ bg.jpg') no-repeat center center;
+  background: url('/DoorChef/Images/cart\ bg.jpg') no-repeat center center;
   color: white;
   padding: 20px;
   border-radius: 10px;
@@ -234,6 +234,28 @@ footer {
 #total-amount {
   font-weight: bold;
   margin: 15px 0;
+}
+
+.button-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.chef-profile-btn {
+  display: inline-block;
+  padding: 12px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: #ff6b6b;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.chef-profile-btn:hover {
+  background-color: #ff4c4c;
 }
 
 /* Animations */

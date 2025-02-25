@@ -708,41 +708,45 @@
       <button onclick="closeBookingForm()">Cancel</button>
     </div>
   </div>
-<!-- Customization Form Modal -->
-<div class="customization-form" id="customization-form-modal" style="display: none;">
-  <div class="customization-form-content">
-    <h2>Customize Your Menu</h2>
+<!-- Customize Menu Button -->
+<button class="customize-menu-btn" onclick="openCustomizationForm()">Customize Menu</button>
 
-    <label for="event-type">Event Type:</label>
-    <select id="event-type">
-      <option value="Birthday">Birthday</option>
-      <option value="Wedding">Wedding</option>
-      <option value="Corporate">Corporate</option>
-      <option value="Other">Other</option>
-    </select>
+<!-- Customize Menu Form (Hidden Initially) -->
+<div id="customization-form-modal" class="custom-menu-modal">
+  <div class="custom-menu-content">
+    <span class="close" onclick="closeCustomizationForm()">&times;</span>
+    <h2>Request a Custom Menu</h2>
+    <form id="custom-menu-form">
+      <label for="event-type">Event Type:</label>
+      <select id="event-type" onchange="calculateCustomizationCost()">
+        <option value="">Select Event</option>
+        <option value="Birthday">Birthday</option>
+        <option value="Wedding">Wedding</option>
+        <option value="Corporate">Corporate</option>
+      </select>
 
-    <label for="customized-dishes">Customized Dishes:</label>
-    <textarea id="customized-dishes" placeholder="List the dishes you want customized"></textarea>
+      <label for="customized-dishes">Preferred Dishes:</label>
+      <textarea id="customized-dishes" placeholder="List your custom dishes"></textarea>
 
-    <label for="number-of-guests">Number of Guests:</label>
-    <input type="number" id="number-of-guests" value="1" min="1">
+      <label for="number-of-guests">Number of Guests:</label>
+      <input type="number" id="number-of-guests" value="1" min="1" onchange="calculateCustomizationCost()">
 
-    <label for="special-requirements">Special Requirements:</label>
-    <textarea id="special-requirements" placeholder="Mention any special requirements"></textarea>
+      <label for="special-requirements">Special Requirements:</label>
+      <textarea id="special-requirements" placeholder="Any special requests"></textarea>
 
-    <label for="customization-cost">Estimated Customization Cost:</label>
-    <p id="customization-cost">₹0</p>
+      <label for="venue-address">Venue Address:</label>
+      <textarea id="venue-address" placeholder="Enter venue address" required></textarea>
 
-    <label for="venue-address">Venue Address:</label>
-    <textarea id="venue-address" placeholder="Enter the venue address"></textarea>
+      <label for="contact-details">Contact Info:</label>
+      <input type="text" id="contact-details" placeholder="Phone or Email" required>
 
-    <label for="contact-details">Contact Details:</label>
-    <input type="text" id="contact-details" placeholder="Enter your contact details">
+      <p>Total Cost: <span id="customization-cost">₹0</span></p>
 
-    <button onclick="addCustomizationToCart()">Proceed to Book</button>
-    <button onclick="closeCustomizationForm()">Cancel</button>
+      <button type="button" onclick="addCustomizationToCart()">Add to Cart</button>
+    </form>
   </div>
 </div>
+
   <!-- Cart Modal -->
   <div class="cart-modal" id="cart-modal" style="display: none;">
     <div class="cart-content">

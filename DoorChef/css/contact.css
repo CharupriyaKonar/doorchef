@@ -3,71 +3,95 @@ body, html {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #f8f9fa, #e9ecef); /* Elegant light gradient */
 }
 
+/* Navbar Styling */
 .navbar {
-  display: flex;
-  flex-direction: column; /* Stack items vertically */
-  align-items: flex-start; /* Align items to the left */
-  background: #888;
-  padding: 10px 5%;
+  background: rgba(50, 50, 50, 0.9); /* Dark semi-transparent navbar */
+  padding: 15px 5%;
   border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.nav-left {
+/* Flex container */
+.nav-container {
+  display: flex;
+  align-items: center;
   width: 100%;
 }
 
+/* Left Side (Logo) */
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
 .logo {
-  width: 60px; /* Adjust logo size */
+  width: 60px;
   height: auto;
 }
 
+/* Right Side (Menu + Cart) */
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 15px;
-  margin-top: 10px; /* Adds spacing below the logo */
+  gap: 20px;
 }
 
+/* Menu Links */
 .nav-links {
   display: flex;
   list-style: none;
   gap: 20px;
+  padding: 0;
+  margin: 0;
 }
 
 .nav-links li {
   margin: 0;
 }
 
-.cart-icon {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  transition: 0.3s;
 }
 
-.cart-icon img {
-  width: 30px;
-  height: 30px;
+.nav-links a:hover {
+  color: #ffb700; /* Smooth hover effect */
 }
-.cart-icon #cart-count {
+
+/* Cart Container */
+.cart-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* Cart Icon */
+.cart-icon {
+  width: 25px;
+  cursor: pointer;
+  filter: brightness(0) invert(1); /* Make it white */
+}
+
+/* Cart Count Badge */
+.cart-count {
   position: absolute;
   top: -5px;
   right: -10px;
-  background: #f15b2a;
+  background: red;
   color: white;
   font-size: 12px;
-  font-weight: bold;
   border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 2px 6px;
 }
-
-
 
 /* Contact Section */
 .contact-section {
@@ -76,6 +100,9 @@ body, html {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background: white;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
 
 /* Contact Container */
@@ -95,6 +122,7 @@ body, html {
 .contact-form h2 {
   font-size: 32px;
   font-weight: bold;
+  color: #333;
   margin-bottom: 10px;
 }
 
@@ -118,13 +146,17 @@ body, html {
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
+  background: #f9f9f9;
+  transition: 0.3s;
 }
 
-.contact-form textarea {
-  height: 120px;
-  resize: none;
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #ffb700;
+  outline: none;
 }
 
+/* Contact Button */
 .contact-btn {
   background-color: #ffb700;
   color: #fff;
@@ -135,6 +167,7 @@ body, html {
   cursor: pointer;
   border-radius: 5px;
   width: 100%;
+  transition: 0.3s;
 }
 
 .contact-btn:hover {
@@ -176,8 +209,10 @@ body, html {
 footer {
   text-align: center;
   padding: 15px;
-  background: #f4f4f4;
+  background: #333;
+  color: white;
   margin-top: 30px;
+  font-size: 14px;
 }
 
 /* Responsive Design */

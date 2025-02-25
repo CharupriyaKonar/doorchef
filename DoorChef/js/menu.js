@@ -134,6 +134,7 @@ function addToCart() {
     alert('Please fill in all the required fields (Date, Venue, Contact Info).');
     return;
   }
+  
 
   // Add the dish to the cart
   const totalPrice = dishPrice * personCount;
@@ -217,22 +218,25 @@ document.addEventListener('DOMContentLoaded', () => {
   updateCartCount(); // Update cart count
 });
 // Open the customization form
-function openCustomizationForm(category) {
-  const customizationFormModal = document.getElementById('customization-form-modal');
-  customizationFormModal.style.display = 'flex';
-  document.getElementById('event-type').value = '';
-  document.getElementById('customized-dishes').value = '';
-  document.getElementById('number-of-guests').value = 1;
-  document.getElementById('special-requirements').value = '';
-  document.getElementById('venue-address').value = '';
-  document.getElementById('contact-details').value = '';
-  document.getElementById('customization-cost').textContent = '₹0';
+function openCustomizationForm() {
+  console.log("Opening Customization Form...");
+  const modal = document.getElementById('customization-form-modal');
+  if (modal) {
+    modal.style.display = 'flex';
+  } else {
+    console.error("Error: Customization modal not found in the DOM.");
+  }
 }
 
 // Close the customization form
 function closeCustomizationForm() {
-  const customizationFormModal = document.getElementById('customization-form-modal');
-  customizationFormModal.style.display = 'none';
+  console.log("Closing Customization Form...");
+  const modal = document.getElementById('customization-form-modal');
+  if (modal) {
+    modal.style.display = 'none';
+  } else {
+    console.error("Error: Customization modal not found in the DOM.");
+  }
 }
 
 // Calculate customization cost dynamically
@@ -242,17 +246,10 @@ function calculateCustomizationCost() {
   let baseCost = 0;
 
   switch (eventType) {
-    case 'Birthday':
-      baseCost = 500;
-      break;
-    case 'Wedding':
-      baseCost = 1000;
-      break;
-    case 'Corporate':
-      baseCost = 800;
-      break;
-    default:
-      baseCost = 300;
+    case 'Birthday': baseCost = 500; break;
+    case 'Wedding': baseCost = 1000; break;
+    case 'Corporate': baseCost = 800; break;
+    default: baseCost = 300;
   }
 
   const totalCost = baseCost * guests;
@@ -274,20 +271,18 @@ function addCustomizationToCart() {
     return;
   }
 
-  const customization = {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  cart.push({
     eventType,
     customizedDishes,
     guests,
     specialRequirements,
     venueAddress,
     contactDetails,
-    cost: costText,
-  };
+    cost: costText
+  });
 
-  // Add customization to the cart
-  cart.push(customization);
-  saveCart(); // Save to localStorage
-
+  localStorage.setItem('cart', JSON.stringify(cart));
   alert('Customization has been added to the cart.');
   closeCustomizationForm();
 }
