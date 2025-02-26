@@ -286,3 +286,55 @@ function addCustomizationToCart() {
   alert('Customization has been added to the cart.');
   closeCustomizationForm();
 }
+async function bookNow() {
+  const userId = localStorage.getItem("userId"); // Assuming user is logged in
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  if (cart.length === 0) {
+    alert("Your cart is empty.");
+    return;
+  }
+
+  const totalPrice = cart.reduce((sum, item) => sum + item.totalPrice, 0);
+  const allergies = document.getElementById("allergies").value;
+  const mealTiming = document.getElementById("meal-timing").value;
+  const date = document.getElementById("date").value;
+  const venue = document.getElementById("venue").value;
+  const contactInfo = document.getElementById("contact-info").value;
+
+  if (!date || !venue || !contactInfo) {
+    alert("Please fill in all required fields.");
+    return;
+  }
+
+  const bookingData = {
+    userId,
+    dishes: cart,
+    totalPrice,
+    allergies,
+    mealTiming,
+    date,
+    venue,
+    contactInfo,
+  };
+
+  try {
+    const response = await fetch("http://localhost:5000/api/bookings/book", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(bookingData),
+    });
+
+    const data = await response.json();
+    if (response.ok) {
+      alert("Booking saved! Redirecting to payment...");
+      localStorage.setItem("bookingId", data.bookingId);
+      window.location.href = "payment.html";
+    } else {
+      alert("Error: " + data.error);
+    }
+  } catch (error) {
+    console.error("Error booking:", error);
+    alert("Server error. Please try again.");
+  }
+}

@@ -80,4 +80,61 @@ document.addEventListener('DOMContentLoaded', () => {
   window.openCart = openCart;
   window.closeCart = closeCart;
 });
+async function completePayment() {
+  const bookingId = localStorage.getItem("bookingId");
+  if (!bookingId) {
+    alert("No booking found.");
+    return;
+  }
+
+  try {
+    const response = await fetch("http://localhost:5000/api/bookings/allocate-chef", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ bookingId }),
+    });
+
+    const data = await response.json();
+    if (response.ok) {
+      alert(`Chef ${data.chef.name} has been allocated to your booking.`);
+      window.location.href = "confirmation.html"; // Redirect to confirmation page
+    } else {
+      alert("Error: " + data.error);
+    }
+  } catch (error) {
+    console.error("Error allocating chef:", error);
+    alert("Server error. Please try again.");
+  }
+}
+document.getElementById("payment-form").addEventListener("submit", async function (e) {
+  e.preventDefault();
+
+  const paymentMethod = document.getElementById("payment-method").value;
+  const totalAmount = document.getElementById("total-amount").value;
+
+  const response = await fetch("http://localhost:5000/api/payment/create-checkout-session", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      userId: localStorage.getItem("userId"),
+      email: localStorage.getItem("userEmail"),
+      dishName: localStorage.getItem("dishName"),
+      location: localStorage.getItem("location"),
+      bookingTime: localStorage.getItem("bookingTime"),
+      totalAmount,
+    }),
+  });
+
+  const data = await response.json();
+
+  if (data.sessionId) {
+    window.location.href = `https://checkout.stripe.com/pay/${data.sessionId}`;
+  } else {
+    alert("Payment failed. Try again.");
+  }
+});
+
+
+
+
 

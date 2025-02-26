@@ -1,13 +1,13 @@
 const mongoose = require("mongoose");
 
-const chefSchema = new mongoose.Schema({
+const ChefSchema = new mongoose.Schema({
   name: { type: String, required: true },
-  email: { type: String, required: true, unique: true },
+  email: { type: String, unique: true, required: true },
   password: { type: String, required: true },
-  specialty: { type: String, required: true },
+  specialty: [{ type: String, required: true }], // Example: ["Chinese", "Italian"]
   experience: { type: Number, required: true },
-  availability: { type: String, required: true },
-  resume: { type: String, required: true }, // File path or URL
+  availability: { type: Boolean, default: true },
+  
 });
 
-module.exports = mongoose.model("chefs", chefSchema);
+module.exports = mongoose.model("Chef", ChefSchema);
