@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/admin.css">
+  <title>Admin Panel</title>
+</head>
+<body>
+  <header>
+    <h1>Admin Panel</h1>
+    <button id="logout-btn">Logout</button>
+  </header>
+
+  <main>
+    <!-- Chef Applications -->
+    <section id="chef-applications">
+      <h2>Chef Applications</h2>
+      <table id="chef-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Specialty</th>
+            <th>Experience</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Populated dynamically -->
+        </tbody>
+      </table>
+    </section>
+
+    <!-- User Applications -->
+    <section id="user-applications">
+      <h2>User Applications</h2>
+      <table id="user-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Populated dynamically -->
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Payment Monitoring -->
+    <section id="payments">
+      <h2>Payment Monitoring</h2>
+      <table id="payment-table">
+        <thead>
+          <tr>
+            <th>User Id</th>
+            <th>Amount</th>
+            <th>Status</th>
+            <th>Date</th>
+            <th>Dishes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Populated dynamically -->
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Chef Availability -->
+    <section id="chef-availability">
+      <h2>Chef Availability</h2>
+      <table id="availability-table">
+        <thead>
+          <tr>
+            <th>Chef Name</th>
+            <th>Chef phone</th>
+            <th>Specialty</th>
+            <th>Availability</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Populated dynamically -->
+        </tbody>
+      </table>
+    </section>
+    <form id="bookingForm">
+      <label for="dishName">userId:</label>
+      <input type="text" id="userId" name="userId" required><br><br>
+
+      <label for="dishName">Dish Name:</label>
+      <input type="text" id="dishName" name="dishName" required><br><br>
+
+      <label for="location">Location:</label>
+      <input type="text" id="location" name="location" required><br><br>
+
+      <label for="bookingTime">Booking Time:</label>
+      <input type="datetime-local" id="bookingTime" name="bookingTime" required><br><br>
+
+      <label for="paymentStatus">Payment Status:</label>
+      <select id="paymentStatus" name="paymentStatus" required>
+          <option value="pending">Pending</option>
+          <option value="success">Success</option>
+          <option value="failed">Failed</option>
+      </select><br><br>
+
+      <label for="chefName">Chef Name:</label>
+      <input type="text" id="chefName" name="chefName"><br><br>
+
+      <label for="chefPhone">Chef Phone:</label>
+      <input type="text" id="chefPhone" name="chefPhone"><br><br>
+
+      <button type="submit">Submit Booking</button>
+  </form>
+
+  </main>
+  <script>
+      document.getElementById("bookingForm").addEventListener("submit", async function(event) {
+          event.preventDefault();
+
+          const userId = document.getElementById("userId").value;
+          const dishName = document.getElementById("dishName").value;
+          const location = document.getElementById("location").value;
+          const bookingTime = document.getElementById("bookingTime").value;
+          const paymentStatus = document.getElementById("paymentStatus").value;
+          const chefName = document.getElementById("chefName").value;
+          const chefPhone = document.getElementById("chefPhone").value;
+
+          const response = await fetch("http://localhost:5000/api/dish/booking", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ userId, dishName, location, bookingTime, paymentStatus, chefName, chefPhone })
+          });
+
+          const data = await response.json();
+          if (response.ok) {
+              alert("Booking created successfully!");
+          } else {
+              alert("Error: " + data.error);
+          }
+      });
+  </script>
+
+  <script src="/js/admin.js"></script>
+</body>
+</html>

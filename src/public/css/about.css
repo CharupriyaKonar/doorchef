@@ -1,0 +1,298 @@
+/* about.css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #333;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+header .logo img {
+  height: 50px;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+}
+
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+header nav ul li a.active,
+header nav ul li a:hover {
+  text-decoration: underline;
+}
+
+.hero {
+  position: relative;
+  background: url('/DoorChef/Images/about-bg1.jpg') no-repeat center center/cover;
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+  height: 30vh;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Makes the image slightly transparent */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.about {
+  display: flex;
+  align-items: center;
+  padding: 50px;
+}
+
+.about-content {
+  flex: 1;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: larger;
+}
+
+.about img {
+  flex: 1;
+  max-width: 50%;
+  border-radius: 10px;
+}
+
+.how-it-works {
+  background-color: #f9f9f9;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.how-it-works .steps {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.how-it-works .step img {
+  width: 200px;
+  margin-bottom: 10px;
+}
+
+.chefs {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.chefs .chef-cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.chefs .chef-card {
+  max-width: 300px;
+  text-align: center;
+}
+
+.chefs .chef-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+/* Cart Icon Styling */
+.cart-icon {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.cart-icon img {
+  width: 30px;
+  height: 30px;
+}
+
+.cart-icon #cart-count {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background: #f15b2a;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+/* Cart Modal Styling */
+.cart-modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  top: 0;
+  left: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.7); /* Black background with transparency */
+  z-index: 9999; /* Ensure it's on top of other elements */
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal Content Styling */
+.cart-content {
+  background: url('/DoorChef/Images/cart\ bg.jpg') no-repeat center center;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%; /* Adjust width for responsiveness */
+  max-width: 600px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  text-align: center;
+  animation: fadeIn 0.3s ease; /* Add smooth fade-in animation */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Buttons Styling */
+.cart-content button {
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.cart-content button:hover {
+  background-color: #0056b3;
+}
+
+/* Cart Items List */
+#cart-items {
+  list-style-type: none;
+  padding: 0;
+  margin: 10px 0;
+  max-height: 200px; /* Limit height for scrolling */
+  overflow-y: auto;
+  text-align: left;
+}
+
+/* Scrollbar Styling */
+#cart-items::-webkit-scrollbar {
+  width: 8px;
+}
+
+#cart-items::-webkit-scrollbar-thumb {
+  background: #007bff;
+  border-radius: 4px;
+}
+
+#cart-items li {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+/* Total Amount Styling */
+#total-amount {
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+.button-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.chef-profile-btn {
+  display: inline-block;
+  padding: 12px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: #ff6b6b;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.chef-profile-btn:hover {
+  background-color: #ff4c4c;
+}
+
+/* Animations */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 2s ease-in forwards;
+}
+
+.slide-in {
+  transform: translateX(-100px);
+  opacity: 0;
+  animation: slideIn 2s ease-in forwards;
+}
+
+.slide-up {
+  transform: translateY(50px);
+  opacity: 0;
+  animation: slideUp 2s ease-in forwards;
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

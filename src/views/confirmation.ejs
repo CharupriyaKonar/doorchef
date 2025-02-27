@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation - DoorChef</title>
+    <link rel="stylesheet" href="/css/confirmation.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="/home">
+                <img src="/Images/logo.png" alt="DoorChef Logo">
+            </a>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="/home">Home</a></li>
+                <li><a href="/menu">Menu</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact Us</a></li>
+                <div class="cart-icon" onclick="openCart()">
+                    <img src="/Images/cart icon.png" alt="Cart">
+                    <div id="cart-count">0</div>
+                </div>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="confirmation-container">
+        <h1>Booking Confirmed 🎉</h1>
+        <p>Thank you for choosing **DoorChef**! Your chef has been assigned.</p>
+
+        <div class="booking-details">
+            <h2>Your Booking Details:</h2>
+            <p><strong>Dish:</strong> <span id="dish-name"></span></p>
+            <p><strong>Location:</strong> <span id="location"></span></p>
+            <p><strong>Booking Time:</strong> <span id="booking-time"></span></p>
+        </div>
+
+        <div class="chef-details">
+            <h2>Chef Details:</h2>
+            <p><strong>Name:</strong> <span id="chef-name"></span></p>
+            <p><strong>Phone:</strong> <span id="chef-phone"></span></p>
+        </div>
+
+        <button onclick="goToHome()">Go to Home</button>
+    </main>
+
+    <script src="/js/confirmation.js"></script>
+</body>
+</html>

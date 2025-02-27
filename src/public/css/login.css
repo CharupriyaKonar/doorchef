@@ -1,0 +1,74 @@
+/* General Body Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: url('/Images/login-bg.jpg') no-repeat center center fixed; /* Replace with your background image */
+  background-size: cover;
+}
+
+/* Header Section */
+.header {
+  width: 100%;
+  padding: 10px 20px;
+  background-color: rgba(255, 255, 255, 0.11); /* Slightly transparent background for the header */
+  box-shadow: 0px 2px 5px rgba(219, 215, 215, 0.856);
+  display: flex;
+  align-items: center;
+}
+
+.logo-link {
+  text-decoration: none;
+}
+
+.logo {
+  max-width: 50px; /* Small size for the logo */
+  height: auto;
+  cursor: pointer;
+}
+
+/* Login Container */
+.login-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background: rgba(117, 114, 114, 0.658); /* Slightly transparent background */
+  box-shadow: 0px 4px 10px rgba(231, 220, 220, 0.815);
+  border-radius: 8px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Form Styling */
+label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+input, button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #f78d73;
+  color: white;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #fff6a3;
+}
+
+/* Hidden Forms */
+.hidden {
+  display: none;
+}

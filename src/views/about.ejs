@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - DoorChef</title>
+  <link rel="stylesheet" href="/css/about.css">
+  <script src="/js/menu.js" defer></script>
+  <script src="/js/about.js"defer></script>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="/Images/logo.png" alt="DoorChef Logo">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="/home">Home</a></li>
+        <li><a href="/about" class="active">About</a></li>
+        <li><a href="/menu">Menu</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/login">Login</a></li>
+        <div class="cart-icon" onclick="openCart()">
+          <img src="/Images/cart icon.png" alt="Cart Icon">
+          <div id="cart-count">0</div> <!-- Updates dynamically based on items in the cart -->
+        </div>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-overlay">
+        <h1 class="fade-in">Why Choose DoorChef?</h1>
+        <p class="slide-in">Experience the joy of dining with personal chefs in the comfort of your home.</p>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+      <div class="about-content slide-up">
+        <h2>Our Mission</h2>
+        <p>
+          At DoorChef, we believe that every meal should be a memorable experience. 
+          Our goal is to connect you with talented chefs who bring passion and expertise 
+          directly to your home, ensuring an unforgettable culinary journey.
+        </p>
+      </div>
+      <img src="/Images/chef expeirence.jpg" alt="Chef cooking" class="fade-in">
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+      <h2>How It Works</h2>
+      <div class="steps">
+        <div class="step slide-in">
+          <img src="/Images/step1.jpg" alt="Step 1">
+          <h3>Step 1</h3>
+          <p>Browse our menu and select your preferred dishes.</p>
+        </div>
+        <div class="step slide-in">
+          <img src="/Images/step2.jpg" alt="Step 2">
+          <h3>Step 2</h3>
+          <p>Book a professional chef to cook at your home.</p>
+        </div>
+        <div class="step slide-in">
+          <img src="/Images/step3.jpg" alt="Step 3">
+          <h3>Step 3</h3>
+          <p>Enjoy a customized culinary experience!</p>
+        </div>
+      </div>
+    </section>
+
+   <!-- chef/profiles -->
+<section class="chefs">
+  <h2 class="fade-in">Meet Our Chefs</h2>
+  <p class="slide-in">Our chefs are experienced professionals with expertise in a variety of cuisines.</p>
+
+  <div class="chef-cards">
+    <div class="chef-card slide-up">
+      <img src="/Images/about-chef1.jpg" alt="Chef 1">
+      <h3>Chef Arjun</h3>
+      <p>Specialty: Indian Cuisine | 10+ years of experience</p>
+    </div>
+    <div class="chef-card slide-up">
+      <img src="/Images/about-chef2.jpg" alt="Chef 2">
+      <h3>Chef Priya</h3>
+      <p>Specialty: Italian and Continental | 8+ years of experience</p>
+    </div>
+    <div class="chef-card slide-up">
+      <img src="/Images/about-chef3.jpg" alt="Chef 3">
+      <h3>Chef Sameer</h3>
+      <p>Specialty: Chinese Cuisine | 12+ years of experience</p>
+    </div>
+  </div>
+
+  <!-- Button to redirect to Chef's Profile Page -->
+  <div class="button-container">
+    <a href="/chef/profile" class="chef-profile-btn">View All Chefs</a>
+  </div>
+</section>
+
+  </main>
+
+  <footer>
+    <p>© 2025 DoorChef. All rights reserved.</p>
+  </footer>
+  <!-- Cart Modal -->
+<div class="cart-modal" id="cart-modal" style="display: none;">
+  <div class="cart-content">
+    <h2>Your Cart</h2>
+    <ul id="cart-items"></ul>
+    <p id="total-amount"></p>
+    <button id="proceed-to-pay" onclick="proceedToPayment()">Proceed to Pay</button>
+    <button onclick="closeCart()">Close</button>
+  </div>
+</div>
+
+</body>
+</html>

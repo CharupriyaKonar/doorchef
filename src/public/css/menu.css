@@ -1,0 +1,388 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+header {
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  height: 50px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+.cart-icon {
+  position: relative;
+  cursor: pointer;
+}
+
+.cart-icon img {
+  height: 40px;
+  width: 40px;
+}
+
+#cart-count {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-image: url('/Images/menu\ bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #333;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+  z-index: -1; /* Push the overlay behind the content */
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: rgba(68, 58, 58, 0.9);
+  position: sticky;
+  top: 0;
+}
+
+.menu {
+  padding: 20px;
+  text-align: center;
+  color:beige
+}
+
+.category-tabs button {
+  margin: 5px;
+  padding: 10px 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.category-tabs button:hover {
+  background-color: #45a049;
+}
+
+.dishes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+  z-index: 0; /* Ensure the dishes remain above the overlay */
+
+}
+
+.dish {
+  background: rgb(10, 10, 10);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgb(255, 243, 243);
+  overflow: hidden;
+  width: 250px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.dish:hover {
+  transform: scale(1.05);
+}
+
+.dish img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.price {
+  margin: 10px 0;
+}
+
+/* Cart Modal Styles */
+.cart-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-content {
+  background: url('/Images/cart\ bg.jpg') no-repeat center center;
+  background-size: cover;
+  color: rgb(255, 254, 254);
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 500px;
+  text-align: center;
+}
+
+#cart-items {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+#cart-items li {
+  margin: 10px 0;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+  color: black;
+}
+
+#proceed-to-pay {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+#proceed-to-pay:hover {
+  background-color: #45a049;
+}
+/* Booking Form Modal */
+.booking-form {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.booking-form-content {
+  background: #f9f9f9;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh; /* Restrict the height */
+  overflow-y: auto; /* Enable vertical scrolling */
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+  animation: fadeIn 0.3s ease-in-out;
+  position: relative;
+}
+
+.booking-form-content h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.booking-form-content label {
+  display: block;
+  text-align: left;
+  margin: 10px 0 5px;
+  font-weight: bold;
+  color: #444;
+}
+
+.booking-form-content input,
+.booking-form-content textarea,
+.booking-form-content select {
+  display: block;
+  width: 100%;
+  margin: 5px 0 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  background-color: #fff;
+}
+
+.booking-form-content textarea {
+  resize: none;
+  height: 80px;
+}
+
+.booking-form-content button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.booking-form-content button:first-of-type {
+  background-color: #4caf50;
+  color: white;
+}
+
+.booking-form-content button:first-of-type:hover {
+  background-color: #45a049;
+}
+
+.booking-form-content button:last-of-type {
+  background-color: #f44336;
+  color: white;
+  margin-top: 10px;
+}
+
+.booking-form-content button:last-of-type:hover {
+  background-color: #e53935;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Customize Menu Button */
+.customize-menu-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s;
+}
+
+.customize-menu-btn:hover {
+  background-color: #e65a5a;
+}
+
+/* Modal Background */
+.custom-menu-modal {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal Content */
+.custom-menu-content {
+  background-color: white;
+  padding: 20px;
+  width: 50%;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+/* Close Button */
+.close {
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: red;
+}
+
+/* Form Inputs */
+.custom-menu-content input,
+.custom-menu-content textarea,
+.custom-menu-content select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Submit Button */
+button {
+  background-color:linear gradient (beige, black);
+  color: white;
+  border: none;
+  padding: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #e65a5a;
+}

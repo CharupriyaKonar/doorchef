@@ -1,0 +1,236 @@
+/* General Styling */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f8f8f8;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
+}
+
+header .logo img {
+  height: 50px;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+header nav ul li {
+  margin: 0 15px;
+}
+
+header nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+}
+/* Cart Icon Styling */
+.cart-icon {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.cart-icon img {
+  width: 30px;
+  height: 30px;
+}
+
+.cart-icon #cart-count {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background: #f15b2a;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+/* Cart Modal Styling */
+.cart-modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  top: 0;
+  left: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(102, 94, 94, 0.315); /* Black background with transparency */
+  z-index: 9999; /* Ensure it's on top of other elements */
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal Content Styling */
+.cart-content {
+  background: url('/Images/cart_bg.jpg') no-repeat center center;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%; /* Adjust width for responsiveness */
+  max-width: 600px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  text-align: center;
+  animation: fadeIn 0.3s ease; /* Add smooth fade-in animation */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Buttons Styling */
+.cart-content button {
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.cart-content button:hover {
+  background-color: #0056b3;
+}
+
+/* Cart Items List */
+#cart-items {
+  list-style-type: none;
+  padding: 0;
+  margin: 10px 0;
+  max-height: 200px; /* Limit height for scrolling */
+  overflow-y: auto;
+  text-align: left;
+}
+
+/* Scrollbar Styling */
+#cart-items::-webkit-scrollbar {
+  width: 8px;
+}
+
+#cart-items::-webkit-scrollbar-thumb {
+  background: #007bff;
+  border-radius: 4px;
+}
+
+#cart-items li {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+/* Total Amount Styling */
+#total-amount {
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+/* Updated Slider Container */
+.slider-container {
+  position: relative;
+  overflow: hidden;
+  height: 500px;
+  background-color: #000; /* Added background for better contrast */
+}
+
+.slider {
+  display: flex;
+  animation: slide 20s infinite;
+}
+
+.slider .slide {
+  min-width: 100%;
+  height: 100%;
+}
+
+.slider .slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This property ensures the image covers the slide without distortion */
+  object-position: center; /* Ensures the center of the image is focused */
+}
+
+
+/* Overlay Content */
+.slider-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.slider-content h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.slider-content p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.slider-content .btn {
+  text-decoration: none;
+  padding: 15px 30px;
+  background-color: #ff9900;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
+}
+
+/* Animation for Slider */
+@keyframes slide {
+  0%, 20% {
+    transform: translateX(0%);
+  }
+  25%, 45% {
+    transform: translateX(-100%);
+  }
+  50%, 70% {
+    transform: translateX(-200%);
+  }
+  75%, 95% {
+    transform: translateX(-300%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}

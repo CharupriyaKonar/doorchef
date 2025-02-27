@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu - DoorChef</title>
+  <link rel="stylesheet" href="/css/menu.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="/home">
+        <img src="/Images/logo.png" alt="DoorChef Logo">
+      </a>
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="/home">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/menu" class="active">Menu</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+      </ul>
+    </nav>
+    <div class="cart-icon" onclick="openCart()">
+      <img src="/Images/cart icon.png" alt="Cart">
+      <div id="cart-count">0</div>
+    </div>
+  </header>
+
+  <main class="menu">
+    <h1>Our Menu</h1>
+    <div class="category-tabs">
+      <button onclick="showCategory('veg')">Veg</button>
+      <button onclick="showCategory('non-veg')">Non-Veg</button>
+      <button onclick="showCategory('chinese')">Chinese</button>
+      <button onclick="showCategory('italian')">Italian</button>
+      <button onclick="showCategory('millet-foods')">Millet Foods</button>
+    </div>
+
+    <!-- Veg Category -->
+    <div class="category" id="veg" style="display: none;">
+      <h2>Veg Dishes</h2>
+      <div class="dishes">
+        <div class="dish">
+          <img src="/Images/paneer-butter-masala.jpg" alt="Paneer Butter Masala">
+          <h3>Paneer Butter Masala</h3>
+          <p class="price">₹200 (per person)</p>
+          <button onclick="openBookingForm('Paneer Butter Masala', '₹200')">Add to Cart</button>
+        </div>
+        <div class="dish">
+          <img src="/Images/vegetable-curry.jpg" alt="Mixed Veg Curry">
+          <h3>Mixed Veg Curry</h3>
+          <p class="price">₹180 (per person)</p>
+          <button onclick="openBookingForm('Mixed Veg Curry', 180)">Add to Cart</button>
+        </div>
+        <div class="dish">
+          <img src="/Images/dal-tadka.jpg" alt="Dal Tadka">
+          <h3>Dal Tadka</h3>
+          <p class="price">₹150 (per person)</p>
+          <button onclick="openBookingForm('Dal Tadka', 150)">Add to Cart</button>
+        </div>
+        <div class="dish">
+          <img src="/Images/palak-paneer.jpg" alt="Palak Paneer">
+          <h3>Palak Paneer</h3>
+          <p class="price">₹220 (per person)</p>
+          <button onclick="openBookingForm('Palak Paneer', 220)">Add to Cart</button>
+        </div>
+        <div class="dish">
+          <img src="/Images/veg-biryani.jpg" alt="Vegetable Biryani">
+          <h3>Vegetable Biryani</h3>
+          <p class="price">₹250 (per person)</p>
+          <button onclick="openBookingForm('Vegetable Biryani', 250)">Add to Cart</button>
+        </div>
+        <div class="dish">
+          <img src="/Images/aloo-gobi.jpg" alt="Aloo Gobi">
+          <h3>Aloo Gobi</h3>
+          <p class="price">₹160 (per person)</p>
+          <button onclick="openBookingForm('Aloo Gobi', 160)">Add to Cart</button>
+        </div>
+        <div class="dish">
+          <img src="/Images/kadhai-paneer.jpg" alt="Kadhai Paneer">
+          <h3>Kadhai Paneer</h3>
+          <p class="price">₹240 (per person)</p>
+          <button onclick="openBookingForm('Kadhai Paneer', 240)">Add to Cart</button>
+        </div>
+        <div class="dish">
+          <img src="/Images/rajma.jpg" alt="Rajma">
+          <h3>Rajma</h3>
+          <p class="price">₹200 (per person)</p>
+          <button onclick="openBookingForm('Rajma', 200)">Add to Cart</button>
+        </div>
+        <div class="dish">
+          <img src="/Images/matar-paneer.jpg" alt="Matar Paneer">
+          <h3>Matar Paneer</h3>
+          <p class="price">₹210 (per person)</p>
+          <button onclick="openBookingForm('Matar Paneer', 210)">Add to Cart</button>
+        </div>
+        <div class="dish">
+          <img src="/Images/veg-kofta.jpg" alt="Veg Kofta">
+          <h3>Veg Kofta</h3>
+          <p class="price">₹230 (per person)</p>
+          <button onclick="openBookingForm('Veg Kofta', 230)">Add to Cart</button>
+        </div>
+        <div class="dish">
+          <img src="/Images/shahi-paneer.jpg" alt="Shahi Paneer">
+          <h3>Shahi Paneer</h3>
+          <p class="price">₹250 (per person)</p>
+          <button onclick="openBookingForm('Shahi Paneer', 250)">Add to Cart</button>
+        </div>
+        <div class="dish">
+          <img src="/Images/shahi-paneer.jpg" alt="Baingan Bharta">
+          <h3>Baingan Bharta</h3>
+          <p class="price">₹180 (per person)</p>
+          <button onclick="openBookingForm('Baingan Bharta', 180)">Add to Cart</button>
+        </div>
+        <div class="dish">
+          <img src="/Images/chana-masala.jpg" alt="Chana Masala">
+          <h3>Chana Masala</h3>
+          <p class="price">₹190 (per person)</p>
+          <button onclick="openBookingForm('Chana Masala', 190)">Add to Cart</button>
+        </div>
+        <div class="dish">
+          <img src="/Images/methi-malai-matar.jpg" alt="Methi Malai Matar">
+          <h3>Methi Malai Matar</h3>
+          <p class="price">₹210 (per person)</p>
+          <button onclick="openBookingForm('Methi Malai Matar', 210)">Add to Cart</button>
+        </div>
+        <div class="dish">
+          <img src="/Images/bhindi-masala.jpg" alt="Bhindi Masala">
+          <h3>Bhindi Masala</h3>
+          <p class="price">₹170 (per person)</p>
+          <button onclick="openBookingForm('Bhindi Masala', 170)">Add to Cart</button>
+        </div>
+        <div class="dish">
+          <img src="/Images/kashmiri-dum-aloo.jpg" alt="Kashmiri Dum Aloo">
+          <h3>Kashmiri Dum Aloo</h3>
+          <p class="price">₹220 (per person)</p>
+          <button onclick="openBookingForm('Kashmiri Dum Aloo', 220)">Add to Cart</button>
+        </div>
+        <div class="dish">
+          <img src="/Images/navratan-korma.jpg" alt="Navratan Korma">
+          <h3>Navratan Korma</h3>
+          <p class="price">₹240 (per person)</p>
+          <button onclick="openBookingForm('Navratan Korma', 240)">Add to Cart</button>
+        </div>
+        <div class="dish">
+          <img src="/Images/dal-makhani.jpg" alt="Dal Makhani">
+          <h3>Dal Makhani</h3>
+          <p class="price">₹200 (per person)</p>
+          <button onclick="openBookingForm('Dal Makhani', 200)">Add to Cart</button>
+        </div>
+        <div class="dish">
+          <img src="/Images/pindi-chole.jpg" alt="Pindi Chole">
+          <h3>Pindi Chole</h3>
+          <p class="price">₹180 (per person)</p>
+          <button onclick="openBookingForm('Pindi Chole', 180)">Add to Cart</button>
+        </div>
+        <div class="dish">
+          <img src="/Images/aloo-matar.jpg" alt="Aloo Matar">
+          <h3>Aloo Matar</h3>
+          <p class="price">₹170 (per person)</p>
+          <button onclick="openBookingForm('Aloo Matar', 170)">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+   <!-- Non-Veg Category -->
+<div class="category" id="non-veg" style="display: none;">
+  <h2>Non-Veg Dishes</h2>
+  <div class="dishes">
+    <div class="dish">
+      <img src="/Images/chicken-tikka.jpg" alt="Chicken Tikka">
+      <h3>Chicken Tikka</h3>
+      <p class="price">₹300 (per person)</p>
+      <button onclick="openBookingForm('Chicken Tikka', 300)">Add to Cart</button>
+    </div>
+    <div class="dish">
+      <img src="/Images/mutton-curry.jpg" alt="Mutton Curry">
+      <h3>Mutton Curry</h3>
+      <p class="price">₹350 (per person)</p>
+      <button onclick="openBookingForm('Mutton Curry', 350)">Add to Cart</button>
+    </div>
+    <div class="dish">
+      <img src="/Images/fish-fry.jpg" alt="Fish Fry">
+      <h3>Fish Fry</h3>
+      <p class="price">₹320 (per person)</p>
+      <button onclick="openBookingForm('Fish Fry', 320)">Add to Cart</button>
+    </div>
+    <div class="dish">
+      <img src="/Images/chicken-biryani.jpg" alt="Chicken Biryani">
+      <h3>Chicken Biryani</h3>
+      <p class="price">₹280 (per person)</p>
+      <button onclick="openBookingForm('Chicken Biryani', 280)">Add to Cart</button>
+    </div>
+    <div class="dish">
+      <img src="/Images/lamb-chops.jpg" alt="Lamb Chops">
+      <h3>Lamb Chops</h3>
+      <p class="price">₹400 (per person)</p>
+      <button onclick="openBookingForm('Lamb Chops', 400)">Add to Cart</button>
+    </div>
+    <div class="dish">
+      <img src="/Images/prawn-curry.jpg" alt="Prawn Curry">
+      <h3>Prawn Curry</h3>
+      <p class="price">₹350 (per person)</p>
+      <button onclick="openBookingForm('Prawn Curry', 350)">Add to Cart</button>
+    </div>
+    <div class="dish">
+      <img src="/Images/egg-curry.jpg" alt="Egg Curry">
+      <h3>Egg Curry</h3>
+      <p class="price">₹200 (per person)</p>
+      <button onclick="openBookingForm('Egg Curry', 200)">Add to Cart</button>
+    </div>
+    <div class="dish">
+      <img src="/Images/tandoori-chicken.jpg" alt="Tandoori Chicken">
+      <h3>Tandoori Chicken</h3>
+      <p class="price">₹320 (per person)</p>
+      <button onclick="openBookingForm('Tandoori Chicken', 320)">Add to Cart</button>
+    </div>
+    <div class="dish">
+      <img src="/Images/crab-masala.jpg" alt="Crab Masala">
+      <h3>Crab Masala</h3>
+      <p class="price">₹380 (per person)</p>
+      <button onclick="openBookingForm('Crab Masala', 380)">Add to Cart</button>
+    </div>
+    <div class="dish">
+      <img src="/Images/chicken-korma.jpg" alt="Chicken Korma">
+      <h3>Chicken Korma</h3>
+      <p class="price">₹300 (per person)</p>
+      <button onclick="openBookingForm('Chicken Korma', 300)">Add to Cart</button>
+    </div>
+  </div>
+</div>
+
+    <!-- Chinese Category -->
+<div class="category" id="chinese" style="display: none;">
+  <h2>Chinese Dishes</h2>
+  <div class="dishes">
+    <div class="dish">
+      <img src="/Images/schezwan_noodles.jpg" alt="Schezwan Noodles">
+      <h3>Schezwan Noodles</h3>
+      <p class="price">₹200</p>
+      <button onclick="openBookingForm('Schezwan Noodles', '₹200')">Book Now</button>
+    </div>
+    <!-- Dish Card 2 -->
+    <div class="dish">
+      <img src="/Images/fried_rice.jpg" alt="Fried Rice">
+      <h3>Fried Rice</h3>
+      <p class="price">₹180</p>
+      <button onclick="openBookingForm('Fried Rice', '₹180')">Book Now</button>
+    </div>
+    <!-- Dish Card 3 -->
+    <div class="dish">
+      <img src="/Images/manchow_soup.jpg" alt="Manchow Soup">
+      <h3>Manchow Soup</h3>
+      <p class="price">₹150</p>
+      <button onclick="openBookingForm('Manchow Soup', '₹150')">Book Now</button>
+    </div>
+    <!-- Dish Card 4 -->
+    <div class="dish">
+      <img src="/Images/chilli_chicken.jpg" alt="Chilli Chicken">
+      <h3>Chilli Chicken</h3>
+      <p class="price">₹300</p>
+      <button onclick="openBookingForm('Chilli Chicken', '₹300')">Book Now</button>
+    </div>
+    <!-- Dish Card 5 -->
+    <div class="dish">
+      <img src="/Images/spring_rolls.jpg" alt="Spring Rolls">
+      <h3>Spring Rolls</h3>
+      <p class="price">₹120</p>
+      <button onclick="openBookingForm('Spring Rolls', '₹120')">Book Now</button>
+    </div>
+    <!-- Dish Card 6 -->
+    <div class="dish">
+      <img src="/Images/hakka_noodles.jpg" alt="Hakka Noodles">
+      <h3>Hakka Noodles</h3>
+      <p class="price">₹220</p>
+      <button onclick="openBookingForm('Hakka Noodles', '₹220')">Book Now</button>
+    </div>
+    <!-- Dish Card 7 -->
+    <div class="dish">
+      <img src="/Images/schezwan_rice.jpg" alt="Schezwan Fried Rice">
+      <h3>Schezwan Fried Rice</h3>
+      <p class="price">₹240</p>
+      <button onclick="openBookingForm('Schezwan Fried Rice', '₹240')">Book Now</button>
+    </div>
+    <!-- Dish Card 8 -->
+    <div class="dish">
+      <img src="/Images/dim_sums.jpg" alt="Dim Sums">
+      <h3>Dim Sums</h3>
+      <p class="price">₹250</p>
+      <button onclick="openBookingForm('Dim Sums', '₹250')">Book Now</button>
+    </div>
+    <!-- Dish Card 9 -->
+    <div class="dish">
+      <img src="/Images/hot_sour_soup.jpg" alt="Hot & Sour Soup">
+      <h3>Hot & Sour Soup</h3>
+      <p class="price">₹140</p>
+      <button onclick="openBookingForm('Hot & Sour Soup', '₹140')">Book Now</button>
+    </div>
+    <!-- Dish Card 10 -->
+    <div class="dish">
+      <img src="/Images/kung_pao_chicken.jpg" alt="Kung Pao Chicken">
+      <h3>Kung Pao Chicken</h3>
+      <p class="price">₹310</p>
+      <button onclick="openBookingForm('Kung Pao Chicken', '₹310')">Book Now</button>
+    </div>
+    <!-- Dish Card 11 -->
+    <div class="dish">
+      <img src="/Images/veg_manchurian.jpg" alt="Veg Manchurian">
+      <h3>Veg Manchurian</h3>
+      <p class="price">₹200</p>
+      <button onclick="openBookingForm('Veg Manchurian', '₹200')">Book Now</button>
+    </div>
+    <!-- Dish Card 12 -->
+    <div class="dish">
+      <img src="/Images/chilli_paneer.jpg" alt="Chilli Paneer">
+      <h3>Chilli Paneer</h3>
+      <p class="price">₹260</p>
+      <button onclick="openBookingForm('Chilli Paneer', '₹260')">Book Now</button>
+    </div>
+    <!-- Dish Card 13 -->
+    <div class="dish">
+      <img src="/Images/garlic_chicken.jpg" alt="Garlic Chicken">
+      <h3>Garlic Chicken</h3>
+      <p class="price">₹280</p>
+      <button onclick="openBookingForm('Garlic Chicken', '₹280')">Book Now</button>
+    </div>
+    <!-- Dish Card 14 -->
+    <div class="dish">
+      <img src="/Images/shanghai_noodles.jpg" alt="Shanghai Noodles">
+      <h3>Shanghai Noodles</h3>
+      <p class="price">₹230</p>
+      <button onclick="openBookingForm('Shanghai Noodles', '₹230')">Book Now</button>
+    </div>
+    <!-- Dish Card 15 -->
+    <div class="dish">
+      <img src="/Images/pepper_chicken.jpg" alt="Pepper Chicken">
+      <h3>Pepper Chicken</h3>
+      <p class="price">₹290</p>
+      <button onclick="openBookingForm('Pepper Chicken', '₹290')">Book Now</button>
+    </div>
+    <!-- Dish Card 16 -->
+    <div class="dish">
+      <img src="/Images/egg_fried_rice.jpg" alt="Egg Fried Rice">
+      <h3>Egg Fried Rice</h3>
+      <p class="price">₹180</p>
+      <button onclick="openBookingForm('Egg Fried Rice', '₹180')">Book Now</button>
+    </div>
+    <!-- Dish Card 17 -->
+    <div class="dish">
+      <img src="/Images/sweet_sour_chicken.jpg" alt="Sweet & Sour Chicken">
+      <h3>Sweet & Sour Chicken</h3>
+      <p class="price">₹280</p>
+      <button onclick="openBookingForm('Sweet & Sour Chicken', '₹280')">Book Now</button>
+    </div>
+    <!-- Dish Card 18 -->
+    <div class="dish">
+      <img src="/Images/chicken_satay.jpg" alt="Chicken Satay">
+      <h3>Chicken Satay</h3>
+      <p class="price">₹320</p>
+      <button onclick="openBookingForm('Chicken Satay', '₹320')">Book Now</button>
+    </div>
+    <!-- Dish Card 19 -->
+    <div class="dish">
+      <img src="/Images/chow_mein.jpg" alt="Chow Mein">
+      <h3>Chow Mein</h3>
+      <p class="price">₹240</p>
+      <button onclick="openBookingForm('Chow Mein', '₹240')">Book Now</button>
+    </div>
+    <!-- Dish Card 20 -->
+    <div class="dish">
+      <img src="/Images/schezwan_chicken.jpg" alt="Schezwan Chicken">
+      <h3>Schezwan Chicken</h3>
+      <p class="price">₹330</p>
+      <button onclick="openBookingForm('Schezwan Chicken', '₹330')">Book Now</button>
+    </div>
+  </div>
+</div>
+
+<!-- Italian Category -->
+<div class="category" id="italian" style="display: none;">
+  <h2>Italian Dishes</h2>
+  <div class="dishes">
+    <div class="dish">
+    <img src="/Images/margherita_pizza.jpg" alt="Margherita Pizza">
+    <h3>Margherita Pizza</h3>
+    <p class="price">₹400</p>
+    <button onclick="openBookingForm('Margherita Pizza', '₹400')">Book Now</button>
+  </div>
+  <!-- Dish Card 2 -->
+  <div class="dish">
+    <img src="/Images/spaghetti_carbonara.jpg" alt="Spaghetti Carbonara">
+    <h3>Spaghetti Carbonara</h3>
+    <p class="price">₹350</p>
+    <button onclick="openBookingForm('Spaghetti Carbonara', '₹350')">Book Now</button>
+  </div>
+  <!-- Dish Card 3 -->
+  <div class="dish">
+    <img src="/Images/lasagna.jpg" alt="Lasagna">
+    <h3>Lasagna</h3>
+    <p class="price">₹450</p>
+    <button onclick="openBookingForm('Lasagna', '₹450')">Book Now</button>
+  </div>
+  <!-- Dish Card 4 -->
+  <div class="dish">
+    <img src="/Images/risotto.jpg" alt="Risotto">
+    <h3>Risotto</h3>
+    <p class="price">₹400</p>
+    <button onclick="openBookingForm('Risotto', '₹400')">Book Now</button>
+  </div>
+  <!-- Dish Card 5 -->
+  <div class="dish">
+    <img src="/Images/fettuccine_alfredo.jpg" alt="Fettuccine Alfredo">
+    <h3>Fettuccine Alfredo</h3>
+    <p class="price">₹380</p>
+    <button onclick="openBookingForm('Fettuccine Alfredo', '₹380')">Book Now</button>
+  </div>
+  <!-- Dish Card 6 -->
+  <div class="dish">
+    <img src="/Images/pesto_pasta.jpg" alt="Pesto Pasta">
+    <h3>Pesto Pasta</h3>
+    <p class="price">₹340</p>
+    <button onclick="openBookingForm('Pesto Pasta', '₹340')">Book Now</button>
+  </div>
+  <!-- Dish Card 7 -->
+  <div class="dish">
+    <img src="/Images/marinara_pizza.jpg" alt="Marinara Pizza">
+    <h3>Marinara Pizza</h3>
+    <p class="price">₹420</p>
+    <button onclick="openBookingForm('Marinara Pizza', '₹420')">Book Now</button>
+  </div>
+  <!-- Dish Card 8 -->
+  <div class="dish">
+    <img src="/Images/tiramisu.jpg" alt="Tiramisu">
+    <h3>Tiramisu</h3>
+    <p class="price">₹250</p>
+    <button onclick="openBookingForm('Tiramisu', '₹250')">Book Now</button>
+  </div>
+  <!-- Dish Card 9 -->
+  <div class="dish">
+    <img src="/Images/caprese_salad.jpg" alt="Caprese Salad">
+    <h3>Caprese Salad</h3>
+    <p class="price">₹220</p>
+    <button onclick="openBookingForm('Caprese Salad', '₹220')">Book Now</button>
+  </div>
+  <!-- Dish Card 10 -->
+  <div class="dish">
+    <img src="/Images/bolognese_pasta.jpg" alt="Bolognese Pasta">
+    <h3>Bolognese Pasta</h3>
+    <p class="price">₹370</p>
+    <button onclick="openBookingForm('Bolognese Pasta', '₹370')">Book Now</button>
+  </div>
+  <!-- Dish Card 11 -->
+  <div class="dish">
+    <img src="/Images/arancini.jpg" alt="Arancini">
+    <h3>Arancini</h3>
+    <p class="price">₹300</p>
+    <button onclick="openBookingForm('Arancini', '₹300')">Book Now</button>
+  </div>
+  <!-- Dish Card 12 -->
+  <div class="dish">
+    <img src="/Images/gnocchi.jpg" alt="Gnocchi">
+    <h3>Gnocchi</h3>
+    <p class="price">₹320</p>
+    <button onclick="openBookingForm('Gnocchi', '₹320')">Book Now</button>
+  </div>
+  <!-- Dish Card 13 -->
+  <div class="dish">
+    <img src="/Images/panna_cotta.jpg" alt="Panna Cotta">
+    <h3>Panna Cotta</h3>
+    <p class="price">₹280</p>
+    <button onclick="openBookingForm('Panna Cotta', '₹280')">Book Now</button>
+  </div>
+  <!-- Dish Card 14 -->
+  <div class="dish">
+    <img src="/Images/focaccia_bread.jpg" alt="Focaccia Bread">
+    <h3>Focaccia Bread</h3>
+    <p class="price">₹200</p>
+    <button onclick="openBookingForm('Focaccia Bread', '₹200')">Book Now</button>
+  </div>
+  <!-- Dish Card 15 -->
+  <div class="dish">
+    <img src="/Images/eggplant_parmigiana.jpg" alt="Eggplant Parmigiana">
+    <h3>Eggplant Parmigiana</h3>
+    <p class="price">₹350</p>
+    <button onclick="openBookingForm('Eggplant Parmigiana', '₹350')">Book Now</button>
+  </div>
+  <!-- Dish Card 16 -->
+  <div class="dish">
+    <img src="/Images/polenta.jpg" alt="Polenta">
+    <h3>Polenta</h3>
+    <p class="price">₹290</p>
+    <button onclick="openBookingForm('Polenta', '₹290')">Book Now</button>
+  </div>
+  <!-- Dish Card 17 -->
+  <div class="dish">
+    <img src="/Images/zucchini_fritters.jpg" alt="Zucchini Fritters">
+    <h3>Zucchini Fritters</h3>
+    <p class="price">₹240</p>
+    <button onclick="openBookingForm('Zucchini Fritters', '₹240')">Book Now</button>
+  </div>
+  <!-- Dish Card 18 -->
+  <div class="dish">
+    <img src="/Images/minestrone_soup.jpg" alt="Minestrone Soup">
+    <h3>Minestrone Soup</h3>
+    <p class="price">₹210</p>
+    <button onclick="openBookingForm('Minestrone Soup', '₹210')">Book Now</button>
+  </div>
+  <!-- Dish Card 19 -->
+  <div class="dish">
+    <img src="/Images/seafood_risotto.jpg" alt="Seafood Risotto">
+    <h3>Seafood Risotto</h3>
+    <p class="price">₹480</p>
+    <button onclick="openBookingForm('Seafood Risotto', '₹480')">Book Now</button>
+  </div>
+  <!-- Dish Card 20 -->
+  <div class="dish">
+    <img src="/Images/vegetarian_pizza.jpg" alt="Vegetarian Pizza">
+    <h3>Vegetarian Pizza</h3>
+    <p class="price">₹420</p>
+    <button onclick="openBookingForm('Vegetarian Pizza', '₹420')">Book Now</button>
+  </div>
+  </div>
+</div>
+
+
+<!-- Millet Category -->
+<div class="category" id="millet-foods" style="display: none;">
+  <h2>Millet-Foods</h2>
+  <div class="dishes">
+      <!-- Dish Card 1 -->
+      <div class="dish">
+        <img src="/Images/millet_dosa.jpg" alt="Millet Dosa">
+        <h3>Millet Dosa</h3>
+        <p class="price">₹180</p>
+        <button onclick="openBookingForm('Millet Dosa', '₹180')">Book Now</button>
+      </div>
+      <!-- Dish Card 2 -->
+      <div class="dish">
+        <img src="/Images/millet_idli.jpg" alt="Millet Idli">
+        <h3>Millet Idli</h3>
+        <p class="price">₹160</p>
+        <button onclick="openBookingForm('Millet Idli', '₹160')">Book Now</button>
+      </div>
+      <!-- Dish Card 3 -->
+      <div class="dish">
+        <img src="/Images/millet_pulao.jpg" alt="Millet Pulao">
+        <h3>Millet Pulao</h3>
+        <p class="price">₹250</p>
+        <button onclick="openBookingForm('Millet Pulao', '₹250')">Book Now</button>
+      </div>
+      <!-- Dish Card 4 -->
+      <div class="dish">
+        <img src="/Images/millet_upma.jpg" alt="Millet Upma">
+        <h3>Millet Upma</h3>
+        <p class="price">₹200</p>
+        <button onclick="openBookingForm('Millet Upma', '₹200')">Book Now</button>
+      </div>
+      <!-- Dish Card 5 -->
+      <div class="dish">
+        <img src="/Images/millet_roti.jpg" alt="Millet Roti">
+        <h3>Millet Roti</h3>
+        <p class="price">₹150</p>
+        <button onclick="openBookingForm('Millet Roti', '₹150')">Book Now</button>
+      </div>
+      <!-- Dish Card 6 -->
+      <div class="dish">
+        <img src="/Images/millet_khichdi.jpg" alt="Millet Khichdi">
+        <h3>Millet Khichdi</h3>
+        <p class="price">₹220</p>
+        <button onclick="openBookingForm('Millet Khichdi', '₹220')">Book Now</button>
+      </div>
+      <!-- Dish Card 7 -->
+      <div class="dish">
+        <img src="/Images/millet_biryani.jpg" alt="Millet Biryani">
+        <h3>Millet Biryani</h3>
+        <p class="price">₹300</p>
+        <button onclick="openBookingForm('Millet Biryani', '₹300')">Book Now</button>
+      </div>
+      <!-- Dish Card 8 -->
+      <div class="dish">
+        <img src="/Images/millet_pancakes.jpg" alt="Millet Pancakes">
+        <h3>Millet Pancakes</h3>
+        <p class="price">₹180</p>
+        <button onclick="openBookingForm('Millet Pancakes', '₹180')">Book Now</button>
+      </div>
+      <!-- Dish Card 9 -->
+      <div class="dish">
+        <img src="/Images/millet_soup.jpg" alt="Millet Soup">
+        <h3>Millet Soup</h3>
+        <p class="price">₹150</p>
+        <button onclick="openBookingForm('Millet Soup', '₹150')">Book Now</button>
+      </div>
+      <!-- Dish Card 10 -->
+      <div class="dish">
+        <img src="/Images/millet_porridge.jpg" alt="Millet Porridge">
+        <h3>Millet Porridge</h3>
+        <p class="price">₹120</p>
+        <button onclick="openBookingForm('Millet Porridge', '₹120')">Book Now</button>
+      </div>
+      <!-- Dish Card 11 -->
+      <div class="dish">
+        <img src="/Images/millet_samosa.jpg" alt="Millet Samosa">
+        <h3>Millet Samosa</h3>
+        <p class="price">₹100</p>
+        <button onclick="openBookingForm('Millet Samosa', '₹100')">Book Now</button>
+      </div>
+      <!-- Dish Card 12 -->
+      <div class="dish">
+        <img src="/Images/millet_tikki.jpg" alt="Millet Tikki">
+        <h3>Millet Tikki</h3>
+        <p class="price">₹120</p>
+        <button onclick="openBookingForm('Millet Tikki', '₹120')">Book Now</button>
+      </div>
+      <!-- Dish Card 13 -->
+      <div class="dish">
+        <img src="/Images/millet_cake.jpg" alt="Millet Cake">
+        <h3>Millet Cake</h3>
+        <p class="price">₹200</p>
+        <button onclick="openBookingForm('Millet Cake', '₹200')">Book Now</button>
+      </div>
+      <!-- Dish Card 14 -->
+      <div class="dish">
+        <img src="/Images/millet_bread.jpg" alt="Millet Bread">
+        <h3>Millet Bread</h3>
+        <p class="price">₹80</p>
+        <button onclick="openBookingForm('Millet Bread', '₹80')">Book Now</button>
+      </div>
+      <!-- Dish Card 15 -->
+      <div class="dish">
+        <img src="/Images/millet_dhokla.jpg" alt="Millet Dhokla">
+        <h3>Millet Dhokla</h3>
+        <p class="price">₹180</p>
+        <button onclick="openBookingForm('Millet Dhokla', '₹180')">Book Now</button>
+      </div>
+      <!-- Dish Card 16 -->
+      <div class="dish">
+        <img src="/Images/millet_laddu.jpg" alt="Millet Laddu">
+        <h3>Millet Laddu</h3>
+        <p class="price">₹150</p>
+        <button onclick="openBookingForm('Millet Laddu', '₹150')">Book Now</button>
+      </div>
+      <!-- Dish Card 17 -->
+      <div class="dish">
+        <img src="/Images/millet_muffins.jpg" alt="Millet Muffins">
+        <h3>Millet Muffins</h3>
+        <p class="price">₹180</p>
+        <button onclick="openBookingForm('Millet Muffins', '₹180')">Book Now</button>
+      </div>
+      <!-- Dish Card 18 -->
+      <div class="dish">
+        <img src="/Images/millet_biscuits.jpg" alt="Millet Biscuits">
+        <h3>Millet Biscuits</h3>
+        <p class="price">₹100</p>
+        <button onclick="openBookingForm('Millet Biscuits', '₹100')">Book Now</button>
+      </div>
+      <!-- Dish Card 19 -->
+      <div class="dish">
+        <img src="/Images/millet_salad.jpg" alt="Millet Salad">
+        <h3>Millet Salad</h3>
+        <p class="price">₹200</p>
+        <button onclick="openBookingForm('Millet Salad', '₹200')">Book Now</button>
+      </div>
+      <!-- Dish Card 20 -->
+      <div class="dish">
+        <img src="/Images/millet_cutlets.jpg" alt="Millet Cutlets">
+        <h3>Millet Cutlets</h3>
+        <p class="price">₹150</p>
+        <button onclick="openBookingForm('Millet Cutlets', '₹150')">Book Now</button>
+      </div>
+    </div>
+    
+
+    <!-- Other categories omitted for brevity (Add similar structure for Non-Veg, Chinese, Italian, and Millet Foods) -->
+  </main>
+
+  <!-- Booking Form -->
+  <div class="booking-form" id="booking-form-modal" style="display: none;">
+    <div class="booking-form-content">
+      <h2>Booking Details</h2>
+      <p id="selected-dish-name"></p>
+      <input type="hidden" id="selected-dish-price">
+
+      <label for="person-count">Number of Persons:</label>
+      <input type="number" id="person-count" value="1" min="1">
+
+      <label for="allergies">Allergies (if any):</label>
+      <textarea id="allergies" placeholder="Mention any food allergies"></textarea>
+
+      <label for="meal-timing">Meal Timing:</label>
+      <select id="meal-timing">
+        <option value="Morning">Morning</option>
+        <option value="Afternoon">Afternoon</option>
+        <option value="Night">Night</option>
+      </select>
+
+      <label for="date">Date:</label>
+      <input type="date" id="date">
+
+      <label for="venue">Venue:</label>
+      <textarea id="venue" placeholder="Enter the venue address"></textarea>
+
+      <label for="contact-info">Contact Info:</label>
+      <input type="text" id="contact-info" placeholder="Enter your contact number">
+
+      <button onclick="addToCart()">Add to Cart</button>
+      <button onclick="closeBookingForm()">Cancel</button>
+    </div>
+  </div>
+<!-- Customize Menu Button -->
+<button class="customize-menu-btn" onclick="openCustomizationForm()">Customize Menu</button>
+
+<!-- Customize Menu Form (Hidden Initially) -->
+<div id="customization-form-modal" class="custom-menu-modal">
+  <div class="custom-menu-content">
+    <span class="close" onclick="closeCustomizationForm()">&times;</span>
+    <h2>Request a Custom Menu</h2>
+    <form id="custom-menu-form">
+      <label for="event-type">Event Type:</label>
+      <select id="event-type" onchange="calculateCustomizationCost()">
+        <option value="">Select Event</option>
+        <option value="Birthday">Birthday</option>
+        <option value="Wedding">Wedding</option>
+        <option value="Corporate">Corporate</option>
+      </select>
+
+      <label for="customized-dishes">Preferred Dishes:</label>
+      <textarea id="customized-dishes" placeholder="List your custom dishes"></textarea>
+
+      <label for="number-of-guests">Number of Guests:</label>
+      <input type="number" id="number-of-guests" value="1" min="1" onchange="calculateCustomizationCost()">
+
+      <label for="special-requirements">Special Requirements:</label>
+      <textarea id="special-requirements" placeholder="Any special requests"></textarea>
+
+      <label for="venue-address">Venue Address:</label>
+      <textarea id="venue-address" placeholder="Enter venue address" required></textarea>
+
+      <label for="contact-details">Contact Info:</label>
+      <input type="text" id="contact-details" placeholder="Phone or Email" required>
+
+      <p>Total Cost: <span id="customization-cost">₹0</span></p>
+
+      <button type="button" onclick="addCustomizationToCart()">Add to Cart</button>
+    </form>
+  </div>
+</div>
+
+  <!-- Cart Modal -->
+  <div class="cart-modal" id="cart-modal" style="display: none;">
+    <div class="cart-content">
+      <h2>Your Cart</h2>
+      <ul id="cart-items"></ul>
+      <p id="total-amount"></p>
+      <button id="proceed-to-pay" onclick="proceedToPayment()">Proceed to Pay</button>
+      <button onclick="closeCart()">Close</button>
+    </div>
+  </div>
+
+  <script src="/js/menu.js" defer></script>
+
+</body>
+</html>

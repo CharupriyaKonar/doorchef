@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chef Login</title>
+  <link rel="stylesheet" href="/css/chef login.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+    label, input, button {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <h2>Chef Login</h2>
+  <form id="loginForm">
+    <label for="email">Email:</label>
+    <input type="email" id="email" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" required>
+
+    <button type="submit">Login</button>
+  </form>
+  <div id="error-message" class="error"></div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      const response = await fetch("http://localhost:5000/api/Auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ email, password })
+      });
+
+      const data = await response.json();
+      console.log(data)
+      if (response.ok && data.user.role === "chef") {
+        alert("Login successful");
+        localStorage.setItem("token", data.token);
+        window.location.href = "/chef"; // Redirect to Chef's Portal
+      } else {
+        document.getElementById("error-message").textContent =
+          "Invalid login or you do not have chef access.";
+      }
+    });
+  </script>
+</body>
+</html>

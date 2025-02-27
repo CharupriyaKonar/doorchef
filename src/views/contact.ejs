@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - DoorChef</title>
+    <link rel="stylesheet" href="/css/contact.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <!-- Left: Logo -->
+                <div class="nav-left">
+                    <a href="/home">
+                        <img src="/Images/logo.png" alt="DoorChef Logo" class="logo">
+                    </a>
+                </div>
+    
+                <!-- Right: Menu + Cart -->
+                <div class="nav-right">
+                    <ul class="nav-links">
+                        <li><a href="/home">Home</a></li>
+                        <li><a href="/menu">Menu</a></li>
+                    </ul>
+                    <div class="cart-container">
+                        <img src="/Images/cart icon.png" alt="Cart Icon" class="cart-icon">
+                        <div class="cart-count">0</div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="contact-container">
+            <!-- Left Section (Form) -->
+            <div class="contact-form">
+                <h2>Get in Touch</h2>
+                <p>Have any questions? Send us a message and we’ll get back to you as soon as possible.</p>
+
+                <form  action="https://api.web3forms.com/submit" method="POST" id="contact-form">
+                    <input type="hidden" name="access_key" value="003e7593-0171-4c55-95eb-5d26976b6f1f">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Write your message" required></textarea>
+
+                    <button type="submit" class="contact-btn">Send Message</button>
+                </form>
+
+                <!-- Additional Info -->
+                <div class="contact-info">
+                    <div class="info-item">
+                        <img src="/Images/clock icon.png" alt="Clock">
+                        <span>Response in 24 hours</span>
+                    </div>
+                    <div class="info-item">
+                        <img src="/Images/check icon.png" alt="Check">
+                        <span>No commitment</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Section (Image Grid) -->
+            <div class="image-grid">
+                <img src="/Images/Chef Cooking.jpg" alt="Chef Cooking">
+                <img src="/Images/Plated Dish.jpg" alt="Plated Dish">
+                <img src="/Images/Outdoor Dining.jpg" alt="Outdoor Dining">
+                <img src="/Images/Gourmet Dish.jpg" alt="Gourmet Dish">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 DoorChef. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

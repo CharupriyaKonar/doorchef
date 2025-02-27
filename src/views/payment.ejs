@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment - DoorChef</title>
+  <link rel="stylesheet" href="/css/payment.css">
+  <script src="/js/menu.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="/home">
+        <img src="/Images/logo.png" alt="DoorChef Logo">
+      </a>
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="/home">Home</a></li>
+        <li><a href="/menu">Menu</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+        <div class="cart-icon" onclick="openCart()">
+          <img src="/Images/cart icon.png" alt="Cart Icon">
+          <div id="cart-count">0</div> <!-- Updates dynamically based on items in the cart -->
+        </div>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="payment">
+    <h1>Payment Details</h1>
+    <div class="payment-container">
+      <form id="payment-form">
+        <!-- Display Total Amount -->
+        <div class="form-group">
+          <label for="total-amount">Total Amount:</label>
+          <input type="text" id="total-amount" readonly>
+        </div>
+
+        <!-- Payment Method -->
+        <div class="form-group">
+          <label for="payment-method">Payment Method:</label>
+          <select id="payment-method" required onchange="togglePaymentFields()">
+            <option value="" disabled selected>Select Payment Method</option>
+            <option value="card">Credit/Debit Card</option>
+            <option value="upi">UPI (Google Pay, PhonePe, etc.)</option>
+            <option value="wallet">Wallet (Paytm, Amazon Pay)</option>
+            <option value="netbanking">Net Banking</option>
+          </select>
+        </div>
+
+        <!-- Card Details (Initially Hidden) -->
+        <div class="card-details" id="card-details" style="display: none;">
+          <div class="form-group">
+            <label for="card-number">Card Number:</label>
+            <input type="text" id="card-number" placeholder="Enter your card number" maxlength="16" pattern="\d{16}">
+          </div>
+          <div class="form-group">
+            <label for="expiry-date">Expiry Date:</label>
+            <input type="month" id="expiry-date">
+          </div>
+          <div class="form-group">
+            <label for="cvv">CVV:</label>
+            <input type="password" id="cvv" placeholder="CVV" maxlength="3" pattern="\d{3}">
+          </div>
+        </div>
+
+        <!-- UPI Details (Initially Hidden) -->
+        <div class="upi-details" id="upi-details" style="display: none;">
+          <div class="form-group">
+            <label for="upi-id">UPI ID:</label>
+            <input type="text" id="upi-id" placeholder="e.g., yourname@upi">
+          </div>
+        </div>
+
+        <!-- Wallet Details (Initially Hidden) -->
+        <div class="wallet-details" id="wallet-details" style="display: none;">
+          <div class="form-group">
+            <label for="wallet-id">Wallet Number/ID:</label>
+            <input type="text" id="wallet-id" placeholder="e.g., Paytm/Amazon Pay ID">
+          </div>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number:</label>
+          <input type="tel" id="phone" placeholder="Enter your phone number" pattern="\d{10}" required>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn-submit">Make Payment</button>
+      </form>
+    </div>
+  </main>
+
+  <!-- Cart Modal -->
+  <div class="cart-modal" id="cart-modal" style="display: none;">
+    <div class="cart-content">
+      <h2>Your Cart</h2>
+      <ul id="cart-items"></ul>
+      <p id="cart-total-amount"></p>
+      <button id="proceed-to-pay" onclick="proceedToPayment()">Proceed to Pay</button>
+      <button onclick="closeCart()">Close</button>
+    </div>
+  </div>
+
+  <script>
+    function togglePaymentFields() {
+      const method = document.getElementById('payment-method').value;
+      document.getElementById('card-details').style.display = (method === 'card') ? 'block' : 'none';
+      document.getElementById('upi-details').style.display = (method === 'upi') ? 'block' : 'none';
+      document.getElementById('wallet-details').style.display = (method === 'wallet') ? 'block' : 'none';
+
+      // Update required attributes
+      document.getElementById('card-number').required = method === 'card';
+      document.getElementById('expiry-date').required = method === 'card';
+      document.getElementById('cvv').required = method === 'card';
+      document.getElementById('upi-id').required = method === 'upi';
+      document.getElementById('wallet-id').required = method === 'wallet';
+    }
+
+    function proceedToPayment() {
+      document.getElementById('cart-modal').style.display = 'none';
+      window.location.href = "/payment";
+    }
+  </script>
+  <script src="/js/payment.js" defer></script>
+
+</body>
+</html>

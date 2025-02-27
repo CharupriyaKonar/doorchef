@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User, Chef & Admin Login - DoorChef</title>
+  <link rel="stylesheet" href="/css/login.css">
+  <script defer src="/js/login.js"></script>
+</head>
+<body>
+  <header class="logo-container">
+    <a href="/home">
+      <img src="/Images/logo.png" alt="DoorChef Logo" class="logo">
+    </a>
+  </header>
+  <div class="login-container">
+    <h1>Login</h1>
+
+    <!-- Default Login Form -->
+    <form id="login-form">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+
+      <button type="submit" class="btn">Login</button>
+    </form>
+
+    <!-- Links to Registration Forms -->
+    <p class="switch-form">
+      New User? <a href="#" id="register-user-link">Register as User</a> |
+      Chef? <a href="#" id="register-chef-link">Register as Chef</a>
+    </p>
+
+    <!-- User Registration Form (Hidden by Default) -->
+    <form id="register-user-form" class="hidden">
+      <h1>User Registration</h1>
+      <label for="reg-name">Full Name:</label>
+      <input type="text" id="reg-name" name="name" required>
+
+      <label for="reg-email">Email:</label>
+      <input type="email" id="reg-email" name="email" required>
+
+      <label for="reg-password">Password:</label>
+      <input type="password" id="reg-password" name="password" required>
+
+      <label for="confirm-password">Confirm Password:</label>
+      <input type="password" id="confirm-password" name="confirm-password" required>
+
+      <button type="submit" class="btn">Register</button>
+      <p>Already have an account? <a href="#" id="login-link">Login here</a></p>
+    </form>
+
+    <!-- Chef Registration Form (Hidden by Default) -->
+    <form id="register-chef-form" class="hidden" enctype="multipart/form-data">
+      <h1>Chef Registration</h1>
+      <label for="chef-name">Full Name:</label>
+      <input type="text" id="chef-name" name="name" required>
+
+      <label for="chef-email">Email:</label>
+      <input type="email" id="chef-email" name="email" required>
+
+      <label for="chef-password">Password:</label>
+      <input type="password" id="chef-password" name="password" required>
+
+      <label for="specialty">Specialty Cuisine:</label>
+      <input type="text" id="specialty" name="specialty" required>
+
+      <label for="experience">Years of Experience:</label>
+      <input type="number" id="experience" name="experience" min="1" required>
+      
+      <label for="resume">Upload Resume/CV:</label>
+      <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+
+      <button type="submit" class="btn">Register as Chef</button>
+      <p>Already have an account? <a href="/" id="chef login-link">Login here</a></p>
+    </form>
+  </div>
+</body>
+</html>

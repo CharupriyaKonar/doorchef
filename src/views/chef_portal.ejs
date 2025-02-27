@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chef Portal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .tasks, .availability {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 10px 0;
+    }
+    .task {
+      margin: 10px 0;
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+    }
+    .task:last-child {
+      border-bottom: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Chef's Portal</h1>
+    <button id="logoutBtn">Logout</button>
+  </div>
+
+  <h2>Upcoming Bookings</h2>
+  <div class="tasks" id="tasksContainer"></div>
+
+  <h2>Update Availability</h2>
+  <div class="availability">
+    <label for="availableFrom">Available From:</label>
+    <input type="date" id="availableFrom" required>
+
+    <label for="availableTo">Available To:</label>
+    <input type="date" id="availableTo" required>
+
+    <label for="availableTo">Mobile number:</label>
+    <input type="number" id="Mobile" required>
+
+    <button id="updateAvailability">Update</button>
+  </div>
+
+  <script>
+    // Fetch tasks and availability
+    const token = localStorage.getItem("token");
+    if (!token) {
+      alert("You are not authorized to access this page.");
+      window.location.href = "login";
+    }
+
+    async function loadChefData() {
+      const response = await fetch("http://localhost:5000/api/dish/booking", {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+
+      if (response.ok) {
+        const bookings = await response.json();
+        const tasksContainer = document.getElementById("tasksContainer");
+        tasksContainer.innerHTML = "";
+
+        console.log(bookings);
+        bookings.forEach(booking => {
+          const taskDiv = document.createElement("div");
+          taskDiv.classList.add("task");
+          taskDiv.innerHTML = `
+            <p><strong>Booking ID:</strong> ${booking._id}</p>
+            <p><strong>Customer Name:</strong> ${booking.userId.name}</p>
+            <p><strong>Date:</strong> ${booking.bookingTime}</p>
+            <p><strong>Venue:</strong> ${booking.location}</p>
+          `;
+          tasksContainer.appendChild(taskDiv);
+        });
+      } else {
+        alert("Failed to load bookings.");
+      }
+    }
+
+    async function updateAvailability() {
+      const availableFrom = document.getElementById("availableFrom").value;
+      const availableTo = document.getElementById("availableTo").value;
+      const Mobile = document.getElementById("Mobile").value;
+
+      const response = await fetch("http://localhost:5000/api/chefs/availability", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify({ availableFrom, availableTo, Mobile })
+      });
+
+      if (response.ok) {
+        alert("Availability updated successfully.");
+      } else {
+        alert("Failed to update availability.");
+      }
+    }
+
+    document.getElementById("updateAvailability").addEventListener("click", updateAvailability);
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+      localStorage.removeItem("token");
+      window.location.href = "login";
+    });
+
+    loadChefData();
+  </script>
+</body>
+</html>
