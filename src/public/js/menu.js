@@ -55,6 +55,37 @@ function openCart() {
   cartModal.style.display = 'flex';
 }
 
+// Open the cart modal and display items
+function openCarthome() {
+  const cart = loadCart();
+  const cartModal = document.getElementById('cart-modal');
+  const cartItemsList = document.getElementById('cart-items');
+  const totalAmount = document.getElementById('total-amount');
+
+  if (!cartModal || !cartItemsList || !totalAmount) {
+    console.error('Cart modal elements not found on the page.');
+    return;
+  }
+
+  // Clear previous items
+  cartItemsList.innerHTML = '';
+  let total = 0;
+
+  // Populate cart items
+  cart.forEach((item, index) => {
+    total += item.totalPrice;
+    const li = document.createElement('li');
+    li.textContent = `${index + 1}. ${item.dishName} x ${item.personCount} = ₹${item.totalPrice} (Date: ${item.date})`;
+    cartItemsList.appendChild(li);
+  });
+
+  // Show the total amount
+  totalAmount.textContent = `Total: ₹${total}`;
+
+  // Show the cart modal
+  cartModal.style.display = 'flex';
+}
+
 // Close the cart modal
 function closeCart() {
   const cartModal = document.getElementById('cart-modal');

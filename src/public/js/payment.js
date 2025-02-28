@@ -62,7 +62,7 @@ document.getElementById("payment-form").addEventListener("submit", async functio
     });
 
   alert(`Payment of ${totalAmount} is successful! Thank you for using DoorChef.`);
-  // localStorage.clear();
+  localStorage.clear();
   window.location.href = "home"; // Redirect to home page
 });
 

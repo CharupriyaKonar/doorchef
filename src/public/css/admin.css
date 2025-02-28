@@ -36,9 +36,18 @@ body {
   }
   
   h2 {
-    color: #606c38;
+    
+      background: linear-gradient(to right, #3E512F, #A1A96E); /* Dark Olive to Gold */
+      color: white; /* White text for contrast */
+      padding: 15px;
+      text-align: center;
+      font-weight: bold;
+      border-radius: 5px;
   }
   
+  tbody{
+    background: linear-gradient(circle, #F5F1E3, #D4CBA4); /* Beige to Light Olive */
+  }
   table {
     width: 100%;
     border-collapse: collapse;
@@ -55,7 +64,57 @@ body {
   }
   
   th {
-    background-color: #606c38;
+    background: linear-gradient(to right, #3E512F, #A1A96E);
     color: white;
   }
-  
+ /* Booking Form Container */
+#bookingForm {
+  width: 400px; /* Set form width */
+  margin: 20px auto; /* Center form */
+  padding: 20px;
+  background: linear-gradient(to bottom right,  #F5F1E3, #D4CBA4); /* Beige to Peach Gradient */
+  border-radius: 12px;
+  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+  font-family: 'Arial', sans-serif;
+}
+
+/* Label Styling */
+#bookingForm label {
+  font-weight: bold;
+  color: #5A3E2B; /* Dark Brown */
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Input Fields and Select */
+#bookingForm input,
+#bookingForm select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #B8A398;
+  border-radius: 5px;
+  font-size: 14px;
+  background: #fff;
+}
+
+/* Submit Button */
+#bookingForm button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(45deg, #556B2F, #A9C66F); /* Brown to Copper */
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+/* Hover Effect */
+#bookingForm button:hover {
+  background: linear-gradient(45deg, #A9C66F, #556B2F); /* Reverse Gradient */
+  transform: scale(1.05);
+}
+

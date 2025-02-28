@@ -5,9 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DoorChef - Home</title>
   <link rel="stylesheet" href="/css/style.css ">
-  <script src="/js/menu.js" defer></script>
-  <script src="/js/script.js"></script>
-  
+
 </head>
 <body>
   <header>
@@ -22,11 +20,15 @@
         <li><a href="/about">About</a></li>
         <li><a href="/menu">Menu</a></li>
         <li><a href="/contact">Contact</a></li>
-        <li><a href="/login">Login</a></li>
-        <div class="cart-icon" onclick="openCart()">
-          <img src="/Images/cart icon.png" alt="Cart Icon">
-          <div id="cart-count">0</div> <!-- Updates dynamically based on items in the cart -->
-        </div>
+          <% if (!user) { %>
+            <li><a href="/login">Login</a></li>
+          <% } else { %>
+            <li><a href="/logout">Logout</a></li>
+          <% } %>
+          <div class="cart-icon" onclick="openCarthome()">
+            <img src="/Images/cart icon.png" alt="Cart">
+            <div id="cart-count">0</div>
+          </div>
       </ul>
     </nav>
   </header>
@@ -75,7 +77,10 @@
   <footer>
     <p>© 2025 DoorChef. All rights reserved.</p>
   </footer>
- 
+  <script>
 
+  </script>
+  <script src="/js/menu.js" defer></script>
+  <script src="/js/script.js"></script>
 </body>
 </html>

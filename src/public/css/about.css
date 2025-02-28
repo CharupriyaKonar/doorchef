@@ -38,7 +38,7 @@ header nav ul li a:hover {
 
 .hero {
   position: relative;
-  background: url('/DoorChef/Images/about-bg1.jpg') no-repeat center center/cover;
+  background: url('/Images/about-bg1.jpg') no-repeat center center/cover;
   color: white;
   text-align: center;
   padding: 100px 20px;
@@ -167,7 +167,7 @@ footer {
 
 /* Modal Content Styling */
 .cart-content {
-  background: url('/DoorChef/Images/cart\ bg.jpg') no-repeat center center;
+  background: url('/Images/cart\ bg.jpg') no-repeat center center;
   color: white;
   padding: 20px;
   border-radius: 10px;

@@ -5,7 +5,7 @@ function populatePaymentTable(data) {
     .map(
       (payment) => `
     <tr>
-      <td>${payment.user}</td>
+      <td>${payment.user._id}</td>
       <td>${payment.amount}</td>
       <td>${payment.status}</td>
       <td>${payment.date}</td>

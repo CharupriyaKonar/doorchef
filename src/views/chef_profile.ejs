@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Our Chefs - DoorChef</title>
   <link rel="stylesheet" href="/css/chef profile.css">
-  <script src="/js/chef profile.js" defer></script>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-  <header>
+  <header style="display: flex;">
     <div class="logo">
       <img src="/Images/logo.png" alt="DoorChef Logo">
     </div>
@@ -18,126 +19,118 @@
         <li><a href="/about">About</a></li>
         <li><a href="/menu">Menu</a></li>
         <li><a href="/contact">Contact</a></li>
-        <li><a href="/login">Login</a></li>
+        <% if (!user) { %>
+          <li><a href="/login">Login</a></li>
+        <% } else { %>
+          <li><a href="/logout">Logout</a></li>
+        <% } %>
       </ul>
     </nav>
   </header>
 
-  <main>
-    <h1 class="page-title">Meet Our Chefs</h1>
-    <p class="intro-text">Our chefs bring years of experience and a passion for cooking straight to your home.</p>
-
+  <main class="container">
+    <h1 class="page-title text-center">Meet Our Chefs</h1>
+    <p class="intro-text text-center">Our chefs bring years of experience and a passion for cooking straight to your home.</p>
     <section class="chefs-container">
-      <!-- Chef Cards with View Reviews Button -->
-      <div class="chef-card" data-chef="Chef Arjun">
-        <img src="/Images/about-chef1.jpg" alt="Chef Arjun">
-        <h2>Chef Arjun</h2>
-        <p>Specialty: Indian Cuisine | 10+ years</p>
-        <div class="rating">⭐⭐⭐⭐⭐ (4.9)</div>
-        <button class="review-btn" onclick="showReviews('Chef Arjun')">View Reviews</button>
-      </div>
+      <% chefs.forEach(chef => { %>
+        <div class="chef-card">
+          <img src="http://localhost:5000/<%= chef.resume %>" alt="<%= chef.name %>">
+          <h2><%= chef.name %></h2>
+          <p>Specialty: <%= chef.specialty.join(", ") %> | <%= chef.experience %>+ years</p>
+          <div class="rating">⭐⭐⭐⭐⭐ (<%= chef.averageRating.toFixed(1) %>)</div>
+          <button class="review-btn" onclick="showReviews('<%= chef.name %>')">View Reviews</button>
+          <!-- Button to trigger modal -->
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#reviewModal<%= chef._id %>">
+            Submit Review
+          </button>
+        </div>
 
-      <div class="chef-card" data-chef="Chef Priya">
-        <img src="/Images/about-chef2.jpg" alt="Chef Priya">
-        <h2>Chef Priya</h2>
-        <p>Specialty: Italian & Continental | 8+ years</p>
-        <div class="rating">⭐⭐⭐⭐ (4.7)</div>
-        <button class="review-btn" onclick="showReviews('Chef Priya')">View Reviews</button>
-      </div>
-
-      <div class="chef-card" data-chef="Chef Sameer">
-        <img src="/Images/about-chef3.jpg" alt="Chef Sameer">
-        <h2>Chef Sameer</h2>
-        <p>Specialty: Chinese Cuisine | 12+ years</p>
-        <div class="rating">⭐⭐⭐⭐⭐ (5.0)</div>
-        <button class="review-btn" onclick="showReviews('Chef Sameer')">View Reviews</button>
-      </div>
-
-      <div class="chef-card">
-        <img src="/Images/chef profile 1.jpg" alt="Chef 4">
-        <h2>Chef Rohan</h2>
-        <p>Specialty: French Cuisine | 9+ years</p>
-        <div class="rating">⭐⭐⭐⭐ (4.6)</div>
-        <button class="review-btn" onclick="showReviews('Chef Rohan')">View Reviews</button>
-      </div>
-
-      <div class="chef-card">
-        <img src="/Images/chef profile 2.jpg" alt="Chef 5">
-        <h2>Chef Sanya</h2>
-        <p>Specialty: Thai Cuisine | 7+ years</p>
-        <div class="rating">⭐⭐⭐⭐⭐ (4.8)</div>
-        <button class="review-btn" onclick="showReviews('Chef Sanya')">View Reviews</button>
-      </div>
-
-      <div class="chef-card">
-        <img src="/Images/chef profile 3.jpg" alt="Chef 6">
-        <h2>Chef Amrita</h2>
-        <p>Specialty: Thai Cuisine | 7+ years</p>
-        <div class="rating">⭐⭐⭐⭐⭐ (4.8)</div>
-        <button class="review-btn" onclick="showReviews('Chef Amrita')">View Reviews</button>
-      </div>
-
-      <div class="chef-card">
-        <img src="/Images/chef profile 4.jpg" alt="Chef 7">
-        <h2>Chef Vikram</h2>
-        <p>Specialty: Thai Cuisine | 7+ years</p>
-        <div class="rating">⭐⭐⭐⭐⭐ (4.8)</div>
-        <button class="review-btn" onclick="showReviews('Chef Vikram')">View Reviews</button>
-      </div>
-
-      <div class="chef-card">
-        <img src="/Images/chef profile 6.jpg" alt="Chef 8">
-        <h2>Chef Nita</h2>
-        <p>Specialty: Thai Cuisine | 7+ years</p>
-        <div class="rating">⭐⭐⭐⭐⭐ (4.8)</div>
-        <button class="review-btn" onclick="showReviews('Chef Nita')">View Reviews</button>
-      </div>
-
-      <div class="chef-card">
-        <img src="/Images/chef profile 5.jpg" alt="Chef 9">
-        <h2>Chef vikas</h2>
-        <p>Specialty: Thai Cuisine | 7+ years</p>
-        <div class="rating">⭐⭐⭐⭐⭐ (4.8)</div>
-        <button class="review-btn" onclick="showReviews('Chef vikas')">View Reviews</button>
-      </div>
-
-      <div class="chef-card">
-        <img src="/Images/chef profile 9.jpg" alt="Chef 10">
-        <h2>Chef Ranveer</h2>
-        <p>Specialty: Thai Cuisine | 7+ years</p>
-        <div class="rating">⭐⭐⭐⭐⭐ (4.8)</div>
-        <button class="review-btn" onclick="showReviews('Chef Ranveer')">View Reviews</button>
-      </div>
-
-      <div class="chef-card">
-        <img src="/Images/chef profile 8.jpg" alt="Chef 11">
-        <h2>Chef Garima</h2>
-        <p>Specialty: Thai Cuisine | 7+ years</p>
-        <div class="rating">⭐⭐⭐⭐⭐ (4.8)</div>
-        <button class="review-btn" onclick="showReviews('Chef Garima')">View Reviews</button>
-      </div>
-
-      <div class="chef-card">
-        <img src="/Images/chef profile 7.jpg" alt="Chef 12">
-        <h2>Chef Ritu</h2>
-        <p>Specialty: Thai Cuisine | 7+ years</p>
-        <div class="rating">⭐⭐⭐⭐⭐ (4.8)</div>
-        <button class="review-btn" onclick="showReviews('Chef Ritu')">View Reviews</button>
-      </div>
+        <!-- Modal for each chef -->
+        <div class="modal fade" id="reviewModal<%= chef._id %>" tabindex="-1" role="dialog" aria-labelledby="reviewModalLabel<%= chef._id %>" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="reviewModalLabel<%= chef._id %>">Submit Review for <%= chef.name %></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form action="/reviews/create" method="post">
+                  <input type="hidden" name="chef" value="<%= chef._id %>">
+                  <label for="rating">Rating (1-5):</label>
+                  <input type="number" name="rating" min="1" max="5" required>
+                  <br><br>
+                  <label for="comment">Comment:</label>
+                  <textarea name="comment" required></textarea>
+                  <br><br>
+                  <button type="submit" class="btn btn-primary">Submit Review</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% }) %>
     </section>
   </main>
 
   <!-- Modal for Reviews -->
   <div id="reviewModal" class="modal">
-    <div class="modal-content">
+    <div class="modal-content w-50">
       <span class="close" onclick="closeReviews()">&times;</span>
       <h2 id="modal-chef-name"></h2>
       <div id="modal-reviews"></div>
     </div>
   </div>
-
+  
   <footer>
-    <p>© 2025 DoorChef. All rights reserved.</p>
+    <p class="text-center">© 2025 DoorChef. All rights reserved.</p>
   </footer>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    const reviewsData = JSON.parse('<%- JSON.stringify(ratings) %>');
+    console.log(reviewsData)
+
+    // Function to Show Reviews Modal
+    function showReviews(chefName) {
+      const modal = document.getElementById("reviewModal");
+      const modalChefName = document.getElementById("modal-chef-name");
+      const modalReviews = document.getElementById("modal-reviews");
+
+      // Update modal title
+      modalChefName.innerText = `Reviews for ${chefName}`;
+
+      // Check if chef has reviews, otherwise show a message
+      if (reviewsData[chefName]) {
+          modalReviews.innerHTML = reviewsData[chefName]
+              .map(review => `<p><strong>${review.user}</strong>: ${review.rating} - ${review.review}</p>`)
+              .join("");
+      } else {
+          modalReviews.innerHTML = `<p>No reviews available for this chef yet.</p>`;
+      }
+
+      // Display the modal
+      modal.style.display = "block";
+    }
+
+    // Function to Close Reviews Modal
+    function closeReviews() {
+      document.getElementById("reviewModal").style.display = "none";
+    }
+
+    // Close modal when clicking outside content
+    window.onclick = function(event) {
+      const modal = document.getElementById("reviewModal");
+      if (event.target === modal) {
+          closeReviews();
+      }
+    };
+  </script>
 </body>
 </html>
+

@@ -7,6 +7,18 @@
   <link rel="stylesheet" href="/css/chef login.css">
   <style>
     body {
+  margin: 0;
+  padding: 0;
+  background: 
+      url('/Images/chef\ login.jpg') left top no-repeat,
+      url('/Images/chef\ login1.jpg') center no-repeat,
+      url('/Images/chef\ login2.jpg') right bottom no-repeat;
+  background-size: 33% auto, 33% auto, 33% auto; /* Distribute evenly */
+  background-color: #f5f5f5; /* Fallback color */
+  font-family: Arial, sans-serif;
+}
+
+    body {
       font-family: Arial, sans-serif;
       margin: 20px;
     }
@@ -23,16 +35,20 @@
       margin: 10px 0;
     }
     button {
-      background-color: #4CAF50;
-      color: white;
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #45a049;
-    }
+  background: linear-gradient(45deg, #ff7e5f, #feb47b); /* Gradient from Orange to Peach */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+button:hover {
+  background: linear-gradient(45deg, #feb47b, #ff7e5f); /* Reverse gradient on hover */
+}
+
     .error {
       color: red;
     }
